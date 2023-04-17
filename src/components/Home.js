@@ -1,4 +1,5 @@
 import './Home.css'
+import './NavBar'
 function Home({ user }) {
   if (user) {
     return <h1>Welcome, {user.username}!</h1>;

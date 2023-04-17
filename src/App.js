@@ -1,11 +1,11 @@
 import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar'
+import Home from './components/Home';
 
 function App() {
   return (
     <React.Fragment className="App">
-      <Navbar />
+      <Home />
     </React.Fragment>
   );
 }
