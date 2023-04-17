@@ -1,0 +1,12 @@
+.Search-Box .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3px solid red;
+    max-width: 100%;
+    height: 8vh;
+    gap: 10px;
+}
+.searchbox{
+
+}
