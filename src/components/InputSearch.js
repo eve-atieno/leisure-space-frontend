@@ -6,11 +6,11 @@ export default function InputSearch() {
         <>
             <div className='Search-Box'>
                 <div className="nav">
-                    <p>Hello</p>
-                    <p>Hello</p>
-                    <p>Hello</p>
+                    <p>About</p>
+                    <p>Contact</p>
+                    <p>Service</p>
                     <div className="searchbox">
-                        <input placeholder="Search for it..." />
+                       <i class="bi bi-search"></i>
                     </div>
                 </div>
             </div>

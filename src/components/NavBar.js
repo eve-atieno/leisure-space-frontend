@@ -15,7 +15,7 @@ function NavBar({ user, setUser }) {
     <header>
       <nav>
         <ul className="nav-left">
-        <Link to="/">Homesasa</Link>
+        <Link to="/"><i class="bi bi-apple"></i> <br/>AirBnb</Link>
         </ul>
         <ul className="nav-center">
         <InputSearch/>
@@ -24,9 +24,9 @@ function NavBar({ user, setUser }) {
               <button onClick={handleLogoutClick}>Logout</button>
             ) : (
               <ul className="nav-right">
-                 <Link to="/signup">CheckIn</Link>
+                 <Link to="/signup">Signup</Link>
                   <hr />
-                 <Link to="/login">CheckOut</Link>
+                 <Link to="/login">Login</Link>
               </ul>
             )}
       </nav>

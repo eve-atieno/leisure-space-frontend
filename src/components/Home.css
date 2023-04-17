@@ -1,5 +1,57 @@
 .hero{
-    background: yellow;
+    background: #fff;
     width: 100%;
-    height: 100vh;
+    height: 128vh;
+    /* border: 3px solid #000; */
 }
+.HomePage{
+    width: 100%;
+    height: 50vh;
+    background: url('https://resizer.otstatic.com/v2/photos/wide-xlarge/3/42782810.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.ContentContainer{
+    max-width: 100%;
+    height: 30vh;
+    /* background: red; */
+    padding: 2%;
+}
+.ContentPlace{
+    width: 100%;
+    max-height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    /* border: 3px solid #000; */
+    justify-content: space-between;
+}
+.ContentCard{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 3px solid red; */
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.ContentCard:hover{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.ContentCard img{
+    border-radius: 20px;
+    cursor: pointer;
+    width: 300px;
+}
+.imgs{
+    border-radius: 10px;
+}
+.ContentCard p{
+    color: #000;
+    font-size: 25px;
+}
+span{
+    color: #888;
+}
+.Footer{}
