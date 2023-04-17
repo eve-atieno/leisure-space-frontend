@@ -7,6 +7,8 @@ function Home({ user }) {
     return (
       <div className="hero">
         <div className='HomePage'></div>
+        <div className='ContentContainer'></div>
+        <div className='Footer'></div>
       </div>
     )
   }

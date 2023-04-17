@@ -1,12 +1,19 @@
 .hero{
     background: red;
     width: 100%;
-    height: 100vh;
+    height: 128vh;
+    border: 3px solid #000;
 }
 .HomePage{
     width: 100%;
     height: 50vh;
-    background: url('https://media-cdn.tripadvisor.com/media/photo-s/16/bd/e0/d0/restaurant-en-kitchen.jpg');
+    background: url('https://resizer.otstatic.com/v2/photos/wide-xlarge/3/42782810.jpg');
     background-position: center;
     background-size: cover;
 }
+.ContentContainer{
+    width: 100%;
+    height: 30vh;
+    background: #fff;
+}
+.Footer{}

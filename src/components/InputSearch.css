@@ -14,6 +14,8 @@
 .searchbox{
     width: 60px;
     height: 70%;
+    cursor: pointer;
+    box-shadow: rgba(40, 40, 39, 0.35) 0px 5px 15px;
     background: orangered;
     border-radius: 50px;
     position: relative;
