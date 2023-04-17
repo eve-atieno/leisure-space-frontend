@@ -6,7 +6,7 @@ function Home({ user }) {
   } else {
     return (
       <div className="hero">
-        Hello
+        <div className='HomePage'></div>
       </div>
     )
   }
