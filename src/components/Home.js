@@ -54,9 +54,12 @@ function Home({ user }) {
             </div>
           </div>
         </div>
-        <div className='Footer'></div>
+        <div className='ContentPlaceToVisit'>
+          <h2>Not sure where<br/> to go? Perfect.</h2>
+          <button>Try Us</button>
+        </div>
       </div>
-    )
+    );
   }
 }
 
