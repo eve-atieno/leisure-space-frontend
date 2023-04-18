@@ -7,7 +7,9 @@ export default function InputSearch() {
             <div className='Search-Box'>
                 <div className="nav">
                     <p>About</p>
+                    <br/>
                     <p>Contact</p>
+                    <br/>
                     <p>Service</p>
                     <div className="searchbox">
                        <i class="bi bi-search"></i>
