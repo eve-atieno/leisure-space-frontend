@@ -1,4 +1,3 @@
-
 # LEISURE SPACE
 
 ## Project Description
@@ -49,7 +48,3 @@ Everline Atieno
 Brian Mathenge
 Aisha Mohammed
 
-
-
-
-<!-- ken -->
