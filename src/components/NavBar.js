@@ -15,6 +15,21 @@ function classNames(...classes) {
 
 
 export default function NavBar() {
+
+  return classes.filter(Boolean).join('')
+}
+
+
+
+export default function NavBar() {
+  // function handleLogoutClick() {
+  //   fetch("/logout", {
+  //     method: "DELETE"
+  //   })
+  //     .then((r) => {
+  //       SpeechSynthesisUtterance(null);
+  //     });
+  // }
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -119,6 +134,18 @@ export default function NavBar() {
                         )}
                       </Menu.Item>
                       <Menu.Item>
+
+                        {/* <div>
+                          {user ? (
+                            <button onClick={handleLogoutClick}>Logout</button>
+                          ) : (
+                            <>
+                              <Link to="/signup" className="x">Signup</Link>
+                              <Link to="/login" className="x">Login</Link>
+                            </>
+                          )}
+                        </div> */}
+
                         {({ active }) => (
                           <a
                             href="#"
