@@ -20,7 +20,7 @@ function App() {
       {selectedFilter == 2 ? <Cards list={list} /> : <Cards list={list3} /> };
       {selectedFilter == 3 ? <Cards list={list} /> : <Cards list={list4} /> }
     </div>
-=======
+
 import React, { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import SignUp from "./SignUp";
