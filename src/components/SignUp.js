@@ -35,7 +35,7 @@ function SignUp({ setUser }) {
             <div className="banner">
                 <div className="portfolio pdx">
                     <div className="portfolio-description pd">
-                        <h2>Welcome! <span>To Our Site</span></h2>
+                        <h2>Welcome! Leisurespace</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Valiptatum</p>
                         <div className="portfolio-social-icons">
                             <a href="/"><i className="bi bi-facebook"></i></a>
