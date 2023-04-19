@@ -5,6 +5,7 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import BookingPage from "./BookingPage";
+import Footer from "./Footer";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,8 +32,9 @@ function App() {
         <Route exact path="/login">
           <Login setUser={setUser} />
         </Route>
+        <Footer />
 
-        
+
       </BrowserRouter>
     </>
   );

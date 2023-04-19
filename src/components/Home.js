@@ -58,7 +58,7 @@ function Home({ user }) {
           <h2>Not sure where<br/> to go? Perfect.</h2>
           <button>Try Us</button>
         </div>
-        <div className='FooterUser'>
+        {/* <div className='FooterUser'>
           <div className='FooterItems'>
             <div className='FooterText'>
               <h1>Logo</h1>
@@ -75,7 +75,7 @@ function Home({ user }) {
 						<i class="bi bi-google"></i>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }
