@@ -15,7 +15,7 @@ function NavBar({ user, setUser }) {
     <header>
       <nav>
         <ul className="nav-left">
-          <Link to="/"><i class="bi bi-apple"></i> <br />AirBnb</Link>
+          <Link to="/"><img src="https://companieslogo.com/img/orig/ABNB-4aaade0f.png?t=1633511992"className="Logo" /><br />Leisurespace</Link>
         </ul>
         <ul className="nav-center">
           <InputSearch />
