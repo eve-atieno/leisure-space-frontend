@@ -70,7 +70,7 @@ function SignUp({ setUser }) {
                                 />
                             </div>
                             <div className="input-box">
-                                <input
+                                <input 
                                     type="password"
                                     id="password_confirmation"
                                     placeholder="Password Confirmation"

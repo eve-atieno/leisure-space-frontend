@@ -15,20 +15,20 @@ function NavBar({ user, setUser }) {
     <header>
       <nav>
         <ul className="nav-left">
-        <Link to="/"><i class="bi bi-apple"></i> <br/>AirBnb</Link>
+          <Link to="/"><i class="bi bi-apple"></i> <br />AirBnb</Link>
         </ul>
         <ul className="nav-center">
-        <InputSearch/>
+          <InputSearch />
         </ul>
-            {user ? (
-              <button onClick={handleLogoutClick}>Logout</button>
-            ) : (
-              <ul className="nav-right">
-                 <Link to="/signup">Signup</Link>
-                  <hr />
-                 <Link to="/login">Login</Link>
-              </ul>
-            )}
+        {user ? (
+          <button onClick={handleLogoutClick}>Logout</button>
+        ) : (
+          <ul className="nav-right">
+            <Link to="/signup">Signup</Link>
+            <hr />
+            <Link to="/login">Login</Link>
+          </ul>
+        )}
       </nav>
     </header>
   );

@@ -24,18 +24,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     gap: 30px;
+    /* border: 5px solid red; */
     justify-content: space-between;
 }
 .ContentCard{
     /* border: 2px solid red; */
-    width: 70%;
-    padding: 20px 20px;
-    height: auto;
-    overflow: hidden;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
-    /* border: 3px solid red; */
+    gap: 20px;
 }
 .ContentCard:hover{
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -43,7 +39,7 @@
 .ContentCard img{
     border-radius: 20px;
     cursor: pointer;
-    width:70%;
+    width:50%;
 }
 .imgs{
     border-radius: 10px;
@@ -60,7 +56,7 @@ span{
     background: url('https://www.globaladventurechallenges.com/storage/app/uploads/public/5ff/73f/ccf/5ff73fccf417b426949828.png');
     height: 50vh;background-size: cover;
     background-position: center;
-    padding: 20px;
+    padding: 30px;
 }
 .ContentPlaceToVisit h2{
     color: #fff;
@@ -69,8 +65,43 @@ span{
 .ContentPlaceToVisit button{
     padding: 20px 60px;
     border: 0;
+    cursor: pointer;
     outline: none;
     border-radius: 50px;
     font-size: 20px;
 }
-.Footer{}
+.FooterUser{
+    width: 100%;
+    height: 30vh;
+    background: rgb(5, 5, 17);
+}
+@media (max-width: 669px) and (orientation: portrait) {
+    .FooterUser{
+        /* background: red; */
+        width: 100%;
+        height: auto;
+    }
+    .FooterText h1{
+        font-size: 20px;
+        /* color: #000; */
+    }
+}
+.FooterItems{
+    /* border: 3px solid red; */
+    padding: 5px;
+    margin: 5%;
+    width: 90%!important;
+    height: auto!important;
+}
+
+.FooterText{
+    padding: 0 10%;
+    display: grid!important;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))!important;
+    gap: 10px;
+    color: #fff;
+    justify-content: space-around;
+}
+.bi{
+    color: #fff;
+}
