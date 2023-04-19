@@ -1,20 +1,12 @@
 .hero{
-    /* background: url("https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=2048"); */
     width: 100%;
     height:130vh;
 }
 .ContentImage{
     width: 100%;
     background: black;
-    /* border: 3px solid red; */
 }
-.HomePage{
-    width: 100%;
-    height: 50vh;
-    background: url('https://resizer.otstatic.com/v2/photos/wide-xlarge/3/42782810.jpg');
-    background-position: center;
-    background-size: cover;
-}
+
 .ContentContainer{
     max-width: 100%;
     height: fit-content;
@@ -25,30 +17,12 @@
     margin-bottom: 20px;
     width: 100%;
     height: 60vh!important;
-    /* border: 3px solid #000; */
 }
 .img{
-    /* opacity: 0; */
     width: 100%;
     height: 60vh;
     background-position: center;
     background-size: cover;
 }
-.ContentPlace{
-    width: 100%;
-    max-height: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 30px;
-    /* border: 5px solid red; */
-    justify-content: space-between;
-}
-.ContentCard{
-    /* border: 2px solid red; */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
 
 
