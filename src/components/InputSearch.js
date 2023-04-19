@@ -16,6 +16,13 @@ export default function InputSearch() {
                     </div>
                 </div>
             </div>
+            {/* <ul className="nav-center">
+                <div>
+                    <Link to="/signup">Sign Up</Link> /
+                    <Link to="/login">Log In</Link>
+                </div>
+            </ul> */}
+
         </>
     )
 }
