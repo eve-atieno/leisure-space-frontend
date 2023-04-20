@@ -1,76 +1,28 @@
 .hero{
-    background: #fff;
     width: 100%;
-    height: 128vh;
-    /* border: 3px solid #000; */
+    height:130vh;
 }
-.HomePage{
+.ContentImage{
     width: 100%;
-    height: 50vh;
-    background: url('https://resizer.otstatic.com/v2/photos/wide-xlarge/3/42782810.jpg');
-    background-position: center;
-    background-size: cover;
+    background: black;
 }
+
 .ContentContainer{
     max-width: 100%;
     height: fit-content;
-    /* background: red; */
     margin-bottom: 2px;
     padding: 2%;
 }
-.ContentPlace{
-    width: 100%;
-    max-height: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 30px;
-    justify-content: space-between;
-}
-.ContentCard{
-    /* border: 2px solid red; */
-    width: 70%;
-    padding: 20px 20px;
-    height: auto;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
-    /* border: 3px solid red; */
-}
-.ContentCard:hover{
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-.ContentCard img{
-    border-radius: 20px;
-    cursor: pointer;
-    width:70%;
-}
-.imgs{
-    border-radius: 10px;
-}
-.ContentCard p{
-    color: #000;
-    font-size: 25px;
-}
-span{
-    color: #888;
-}
 .ContentPlaceToVisit{
-    /* width: 100%; */
-    background: url('https://www.globaladventurechallenges.com/storage/app/uploads/public/5ff/73f/ccf/5ff73fccf417b426949828.png');
-    height: 50vh;background-size: cover;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 60vh!important;
+}
+.img{
+    width: 100%;
+    height: 60vh;
     background-position: center;
-    padding: 20px;
+    background-size: cover;
 }
-.ContentPlaceToVisit h2{
-    color: #fff;
-    font-size: 60px;
-}
-.ContentPlaceToVisit button{
-    padding: 20px 60px;
-    border: 0;
-    outline: none;
-    border-radius: 50px;
-    font-size: 20px;
-}
-.Footer{}
+
+
