@@ -1,28 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-import SignUp from "./SignUp";
-import Login from "./Login";
-import NavBar from "./NavBar";
-import Home from "./Home";
+// import React, { useEffect, useState } from "react";
+// import { Switch, Route } from "react-router-dom";
+// import SignUp from "./SignUp";
+// import Login from "./Login";
+// import NavBar from "./NavBar";
+// import Home from "./Home";
 import BookingPage from "./BookingPage";
 
 
-function App() {
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
+function App() {
+  // const [user, setUser] = useState(null);
+
+  // useEffect(() => {
+  //   // auto-login
+  //   fetch("/me").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+  // }, []);
 
   return (
     <>
+    
     <BookingPage />
-      <NavBar user={user} setUser={setUser} />
+      {/* <NavBar user={user} setUser={setUser} />
       <main>
         {user ? (
           <Switch>
@@ -41,9 +43,9 @@ function App() {
             <Route path="/">
               <Home />
             </Route>
-          </Switch>
-        )}
-      </main>
+          </Switch> */}
+        {/* )}
+      </main> */}
     </>
   );
 }
