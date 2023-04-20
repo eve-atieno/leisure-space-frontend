@@ -53,7 +53,7 @@ span{
 }
 .ContentPlaceToVisit{
     /* width: 100%; */
-    background: url('https://www.globaladventurechallenges.com/storage/app/uploads/public/5ff/73f/ccf/5ff73fccf417b426949828.png');
+    background: url("https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=2048");
     height: 50vh;background-size: cover;
     background-position: center;
     padding: 30px;
@@ -61,6 +61,7 @@ span{
 .ContentPlaceToVisit h2{
     color: #fff;
     font-size: 60px;
+    margin-bottom: 20px;
 }
 .ContentPlaceToVisit button{
     padding: 20px 60px;
@@ -104,4 +105,8 @@ span{
 }
 .bi{
     color: #fff;
+}
+.btnx{
+    padding: 17px 50px!important;
+    background: orangered;
 }
