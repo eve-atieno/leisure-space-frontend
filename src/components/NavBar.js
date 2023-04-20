@@ -1,11 +1,10 @@
 import { Fragment } from 'react'
-import { Link } from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import './NavBar.css'
 const navigation = [
-  { name: 'LeisureSpace', href: '#', current: true },
-  { name: 'Sign', href: '#', current: false },
+  { name: 'Home', href: '#', current: true },
+  { name: 'SignIn', href: '#', current: false },
   { name: 'LogIn', href: '#', current: false },
 ]
 
@@ -13,23 +12,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-
 export default function NavBar() {
 
-  return classes.filter(Boolean).join('')
-}
-
-
-
-export default function NavBar() {
-  // function handleLogoutClick() {
-  //   fetch("/logout", {
-  //     method: "DELETE"
-  //   })
-  //     .then((r) => {
-  //       SpeechSynthesisUtterance(null);
-  //     });
-  // }
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -37,7 +21,6 @@ export default function NavBar() {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -49,25 +32,21 @@ export default function NavBar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-8 w-auto lg:hidden rounded-full cursor-pointer"
-                    src="https://blog.logomyway.com/wp-content/uploads/2020/03/arbnb-logo.jpg"
+                  {/* <img
+                    className="block h-8 w-auto lg:hidden"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                     alt="Your Company"
                   />
                   <img
-                    className="hidden h-8 w-auto lg:block rounded-full"
-                    src="https://blog.logomyway.com/wp-content/uploads/2020/03/arbnb-logo.jpg"
+                    className="hidden h-8 w-auto lg:block"
+                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                     alt="Your Company"
-                  />
+                  /> */}
                 </div>
-                {/*  */}
-                {/*  */}
-                {/*  */}
-                {/*  */}
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <Link to="/"
+                      <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -77,19 +56,21 @@ export default function NavBar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </Link>
+                      </a>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
+              <input type="search" id="search" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required />
+
+                {/* <button
                   type="button"
                   className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+                </button> */}
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -129,7 +110,7 @@ export default function NavBar() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Settings
+                            SignIn
                           </a>
                         )}
                       </Menu.Item>
@@ -151,7 +132,7 @@ export default function NavBar() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Sign out
+                            LogIn
                           </a>
                         )}
                       </Menu.Item>

@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import BookingPage from "./BookingPage";
 
+
 function App() {
   const [user, setUser] = useState(null);
 
@@ -21,7 +22,6 @@ function App() {
     <>
       <BrowserRouter>
         <NavBar user={user} setUser={setUser} />
-        <BookingPage />
         <Route exact path="/">
           <Home />
         </Route>
@@ -31,6 +31,7 @@ function App() {
         <Route exact path="/login">
           <Login setUser={setUser} />
         </Route>
+        <BookingPage />
 
         
       </BrowserRouter>
