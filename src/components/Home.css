@@ -5,7 +5,9 @@
 .ContentImage{
     width: 100%;
     background: black;
+    border: 3px solid #000;
 }
+
 
 .ContentContainer{
     max-width: 100%;
@@ -21,11 +23,26 @@
 }
 .img{
     width: 100%;
-    height: 90vh;
+    height: 80vh;
     background-position: center;
     background-size: cover;
 }
 
+@media (max-width: 790px) and (orientation: portrait) {
+    .ContentImage{
+        border: 3px solid red;
+        max-width: 100%;
+        position: absolute;
+        background-position: center;
+        background-size: cover;
+        height: 80vh;
+        background: red;
+    }
+    .img{
+        max-height: 80vh!important;
+        max-width: 100%;
+    }
+}
 .texts{
     position: relative;
 }
