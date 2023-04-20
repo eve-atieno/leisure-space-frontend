@@ -11,17 +11,21 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={[<NavBar/>, <Home />]} />
-        <Route path="/booking" element={[<NavBar/>,<BookingPage />]} />
+      <BrowserRouter>
+        <NavBar user={user} setUser={setUser} />
+        <BookingPage />
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/signup">
+          <SignUp />
+        </Route>
+        <Route exact path="/login">
+          <Login setUser={setUser} />
+        </Route>
 
-
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-       
-      </Routes>
-      
-      
+        
+      </BrowserRouter>
     </>
   );
 }

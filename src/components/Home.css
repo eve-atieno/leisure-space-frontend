@@ -1,112 +1,28 @@
 .hero{
-    background: #fff;
     width: 100%;
-    height: 128vh;
-    /* border: 3px solid #000; */
+    height:130vh;
 }
-.HomePage{
+.ContentImage{
     width: 100%;
-    height: 50vh;
-    background: url('https://resizer.otstatic.com/v2/photos/wide-xlarge/3/42782810.jpg');
-    background-position: center;
-    background-size: cover;
+    background: black;
 }
+
 .ContentContainer{
     max-width: 100%;
     height: fit-content;
-    /* background: red; */
     margin-bottom: 2px;
     padding: 2%;
 }
-.ContentPlace{
-    width: 100%;
-    max-height: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 30px;
-    /* border: 5px solid red; */
-    justify-content: space-between;
-}
-.ContentCard{
-    /* border: 2px solid red; */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-.ContentCard:hover{
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-.ContentCard img{
-    border-radius: 20px;
-    cursor: pointer;
-    width:50%;
-}
-.imgs{
-    border-radius: 10px;
-}
-.ContentCard p{
-    color: #000;
-    font-size: 25px;
-}
-span{
-    color: #888;
-}
 .ContentPlaceToVisit{
-    /* width: 100%; */
-    background: url("https://news.airbnb.com/wp-content/uploads/sites/4/2019/06/PJM020719Q202_Luxe_WanakaNZ_LivingRoom_0264-LightOn_R1.jpg?w=2048");
-    height: 50vh;background-size: cover;
-    background-position: center;
-    padding: 30px;
-}
-.ContentPlaceToVisit h2{
-    color: #fff;
-    font-size: 60px;
     margin-bottom: 20px;
-}
-.ContentPlaceToVisit button{
-    padding: 20px 60px;
-    border: 0;
-    cursor: pointer;
-    outline: none;
-    border-radius: 50px;
-    font-size: 20px;
-}
-.FooterUser{
     width: 100%;
-    height: 30vh;
-    background: rgb(5, 5, 17);
+    height: 60vh!important;
 }
-@media (max-width: 669px) and (orientation: portrait) {
-    .FooterUser{
-        /* background: red; */
-        width: 100%;
-        height: auto;
-    }
-    .FooterText h1{
-        font-size: 20px;
-        /* color: #000; */
-    }
-}
-.FooterItems{
-    /* border: 3px solid red; */
-    padding: 5px;
-    margin: 5%;
-    width: 90%!important;
-    height: auto!important;
+.img{
+    width: 100%;
+    height: 60vh;
+    background-position: center;
+    background-size: cover;
 }
 
-.FooterText{
-    padding: 0 10%;
-    display: grid!important;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))!important;
-    gap: 10px;
-    color: #fff;
-    justify-content: space-around;
-}
-.bi{
-    color: #fff;
-}
-.btnx{
-    padding: 17px 50px!important;
-    background: orangered;
-}
+
