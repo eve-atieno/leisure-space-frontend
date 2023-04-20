@@ -11,12 +11,10 @@ function Home({ user }) {
         <div className='ContentPlaceToVisit'>
           <div className='ContentImage'>
             <Carousel>
-              <Carousel.Item interval={100}>
-
+              <Carousel.Item interval={1000}>
               <div className='texts'>
-              <h3 className='text-orange-400'>Explore Mombasa</h3>
+              <h3>Hello Uganda</h3>
               </div>
-
                 <img
                   className="d-block w-100 img"
                   src="https://ajkenyasafaris.com/wp-content/uploads/2017/08/547cf2bb-ee15-4615-98ce-f0d053c3893d.jpg"
@@ -29,7 +27,7 @@ function Home({ user }) {
               </Carousel.Item>
               <Carousel.Item interval={500}>
               <div className='texts'>
-              <h3>Explore Nairobi</h3>
+              <h3>Hello Uganda</h3>
               </div>
                 <img
                   className="d-block w-100 img"
@@ -43,7 +41,7 @@ function Home({ user }) {
               </Carousel.Item>
               <Carousel.Item>
               <div className='texts'>
-              <h3>Explore Kisumu</h3>
+              <h3>Hello Uganda</h3>
               </div>
                 <img
                   className="d-block w-100 img"
