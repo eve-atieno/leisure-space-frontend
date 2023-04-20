@@ -1,5 +1,5 @@
 import React from "react";
-import './Footer.css'
+
 
 
 function Footer() {
@@ -408,4 +408,6 @@ function Footer() {
     </div>
   )
 }
-export default Footer;
+
+
+export default Footer

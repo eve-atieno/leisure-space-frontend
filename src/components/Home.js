@@ -3,7 +3,6 @@ import './NavBar'
 import Footer from './Footer';
 import Carousel from 'react-bootstrap/Carousel';
 
-
 function Home({ user }) {
   if (user) {
     return <h1>Welcome, {user.username}!</h1>;
@@ -15,11 +14,11 @@ function Home({ user }) {
             <Carousel>
               <Carousel.Item interval={1000}>
               <div className='texts'>
-              <h3>Hello Uganda</h3>
+              <h3>Explore Nairobi</h3>
               </div>
                 <img
                   className="d-block w-100 img"
-                  src="https://ajkenyasafaris.com/wp-content/uploads/2017/08/547cf2bb-ee15-4615-98ce-f0d053c3893d.jpg"
+                  src="https://images.pexels.com/photos/13348192/pexels-photo-13348192.jpeg?cs=srgb&dl=pexels-antony-trivet-13348192.jpg&fm=jpg"
                   alt="First slide"
                 />
                 <Carousel.Caption>
@@ -29,11 +28,11 @@ function Home({ user }) {
               </Carousel.Item>
               <Carousel.Item interval={500}>
               <div className='texts'>
-              <h3>Hello Uganda</h3>
+              <h3>Explore Mombasa</h3>
               </div>
                 <img
                   className="d-block w-100 img"
-                  src="https://www.sarovahotels.com/stanley-nairobi/assets/images/product/500/sarova-stanley-banner_1902-lounge.jpg"
+                  src="https://images.squarespace-cdn.com/content/v1/52f00078e4b089eccb42cf0e/1425317913558-9MR0N1W0D49EBZXJZ521/Mombasa+by+Night"
                   alt="Second slide"
                 />
                 <Carousel.Caption>
@@ -43,11 +42,11 @@ function Home({ user }) {
               </Carousel.Item>
               <Carousel.Item>
               <div className='texts'>
-              <h3>Hello Uganda</h3>
+              <h3>Explore Kisumu</h3>
               </div>
                 <img
                   className="d-block w-100 img"
-                  src="https://media-cdn.tripadvisor.com/media/photo-m/1280/13/dc/03/b2/merica-hotel.jpg"
+                  src="https://www.danstalter.com/wp-content/uploads/2018/12/IMG_20180922_175913.jpg"
                   alt="Third slide"
                 />
                 <Carousel.Caption>
@@ -68,5 +67,4 @@ function Home({ user }) {
     );
   }
 }
-
 export default Home;
