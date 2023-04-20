@@ -1,10 +1,3 @@
-
-// import React, { useEffect, useState } from "react";
-// import { Switch, Route } from "react-router-dom";
-// import SignUp from "./SignUp";
-// import Login from "./Login";
-// import NavBar from "./NavBar";
-
 import React, { useEffect, useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import SignUp from "./SignUp";
@@ -22,7 +15,7 @@ function App() {
   
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={[<NavBar/>, <Home />]} />
+        <Route path="/" element={[<Home />]} />
         <Route path="/booking" element={[<NavBar/>,<BookingPage />]} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
