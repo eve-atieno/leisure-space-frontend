@@ -28,7 +28,7 @@
 .ContentImage{
     position: relative;
 }
- h3{
+ /* h3{
     font-family: sans-serif;
     font-weight: 700;
     font-size: 70px;
@@ -36,12 +36,12 @@
     margin-top: 15%;
     margin-left: 20%;
     position: absolute;
-}
+} */
 
 .texts{
     position: relative;
 }
- h3{
+ /* h3{
     position: absolute;
     font-family: sans-serif;
     font-weight: 700;
@@ -50,24 +50,24 @@
     margin-right: 35%;
     font-size: 80px;
     color: #eee;
-}
+} */
 
 
 .texts{
     position: relative;
 }
- h3{
+ /* h3{
     position: absolute;
     font-family: sans-serif;
     font-weight: 700;
     margin-top: 13%;
     margin-left: 35%;
     margin-right: 35%;
-    font-size: 80px;
+    font-size: 60px;
     color: #eee;
-}
-.ContentImage{
+} */
+/* .ContentImage{
     border: solid #fff 5px;
     overflow: hidden;
     margin-bottom: 20px;
-}
+} */
