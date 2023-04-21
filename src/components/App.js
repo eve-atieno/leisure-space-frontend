@@ -9,19 +9,11 @@ import ReviewDetails from "./ReviewDetails";
 import AddReviewForm from "./AddReviewForm";
 import ReviewList from "./ReviewList";
 
+import BookingPage from "./BookingPage";
+import Footer from "./Footer";
 
 
 function App() {
-  // const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //   // auto-login
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
 
     const [reviews, setReviews] = useState([
       { id: 1, name: 'John Doe', rating: 4, text: 'Great place!' },
