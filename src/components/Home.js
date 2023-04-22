@@ -1,7 +1,6 @@
 import "./Home.css";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
 import Carousel from "react-bootstrap/Carousel";
+import { Link } from "react-router-dom";
 
 function Home({ user }) {
   if (user) {
@@ -23,9 +22,11 @@ function Home({ user }) {
                   <Carousel.Caption className="d-flex justify-content-center align-items-center flex-column h-100">
                     <h3 className="text-center">Explore Nairobi</h3>
                     <div className="flex justify-center items-center mt-4">
+                      <Link to="/spaces">
                       <button className="rounded-full bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4">
                         View Spaces
                       </button>
+                      </Link>
                     </div>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -40,9 +41,11 @@ function Home({ user }) {
                   <Carousel.Caption className="d-flex justify-content-center align-items-center flex-column h-100">
                     <h3 className="text-center">Explore Mombasa</h3>
                     <div className="flex justify-center items-center mt-4">
+                      <Link to="/spaces">
                       <button className="rounded-full bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4">
                         View Spaces
                       </button>
+                      </Link>
                     </div>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -53,11 +56,13 @@ function Home({ user }) {
                     alt="Third slide"
                   />
                   <Carousel.Caption className="d-flex justify-content-center align-items-center flex-column h-100">
-                    <h3 className="text-center">Explore Kisumu</h3>
+                    <h3 className="text-center text 4xl">Explore Kisumu</h3>
                     <div className="flex justify-center items-center mt-4">
+                      <Link to="/spaces">
                       <button className="rounded-full bg-orange-500 hover:bg-blue-700 text-white font-bold py-2 px-4">
                         View Spaces
                       </button>
+                      </Link>
                     </div>
                   </Carousel.Caption>
                 </Carousel.Item>
@@ -65,9 +70,7 @@ function Home({ user }) {
             </div>
           </div>
         
-          {/* <footer>
-            <Footer />
-          </footer> */}
+        
         </div>
       </>
     );
