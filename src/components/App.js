@@ -10,7 +10,7 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Footer from "./Footer";
 import Spaces from "./Cards/Cards.js"
-import Reserve from "./Reserve";
+// import Reserve from "./Reserve";
 
 
 
@@ -27,7 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/spaces" element={<Spaces />} />
-        <Route path="/reserve" element={<Reserve />} />
+        {/* <Route path="/reserve" element={<Reserve />} /> */}
         
       </Routes>
       <Footer/>

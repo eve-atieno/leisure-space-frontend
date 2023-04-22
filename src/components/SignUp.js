@@ -1,16 +1,40 @@
 import React from "react";
 import { useContext, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
-function SignUp() {
+function SignUp({ setUser }) {
 
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    let navigator = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-    };
+        setErrors([]);
+    setIsLoading(true);
+    fetch("http://localhost:4000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user) => {
+          setUser(user);
+        });
+        navigator("/");
+      } else {
+        r.json().then((err) => setErrors(err.errors));
+      }
+    });
+  }
 
 
   return (
@@ -22,23 +46,6 @@ function SignUp() {
         <form
             onSubmit={handleSubmit}
          className="flex flex-col items-center  justify-center mt-8">
-          <div className="w-full mb-2 flex flex-col">
-            <label
-              htmlFor="username"
-              className="text-gray-500 font-bold mb-2"
-            >
-              Username
-            </label>
-            <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-              type="text"
-              id="username"
-              placeholder="Username"
-              className="border-2 border-gray-400 rounded-lg w-full h-12 px-3 text-lg focus:outline-none focus:border-blue-500"
-              required
-            />
-          </div>
           <div className="w-full mb-2 flex flex-col">
             <label htmlFor="email" className="text-gray-500 font-bold mb-2">
               Email

@@ -8,6 +8,7 @@ function Home({ user }) {
   } else {
     return (
       <>
+        {/* <NavBar />  */}
         <div className="hero">
           <div className="ContentPlaceToVisit">
             <div className="ContentImage">
