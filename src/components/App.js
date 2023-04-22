@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 // import { Switch, Route } from "react-router-dom";
 // import SignUp from "./SignUp";
 // import Login from "./Login";
@@ -9,8 +10,17 @@ import ReviewDetails from "./ReviewDetails";
 import AddReviewForm from "./AddReviewForm";
 import ReviewList from "./ReviewList";
 
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import SignUp from "./SignUp";
+import Login from "./Login";
+import NavBar from "./NavBar";
+import Home from "./Home";
+
 import BookingPage from "./BookingPage";
 import Footer from "./Footer";
+import Spaces from "./Cards/Cards.js"
+
 
 
 function App() {
@@ -20,6 +30,20 @@ function App() {
       { id: 2, name: 'Jane Doe', rating: 5, text: 'I loved it!' },
     ]);
     const [selectedReview, setSelectedReview] = useState(null);
+
+  return (
+  
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={[<Home/>,<Footer/>]} />
+        <Route path="/booking" element={[<NavBar/>,<BookingPage />]} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/spaces" element={<Spaces />} />
+      </Routes>
+      </BrowserRouter>
+      
+>
   
     const handleAddReview = (newReview) => {
       setReviews([...reviews, { id: Date.now(), ...newReview }]);

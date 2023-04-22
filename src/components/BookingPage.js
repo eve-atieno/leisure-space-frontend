@@ -3,6 +3,7 @@ import {BiCurrentLocation} from "react-icons/bi";
 import {IoMdWifi} from "react-icons/io";
 
 
+
 function BookingPage() {
   const[checkInTime,setCheckInTime]=useState("")
         const[checkOutTime,setCheckOutTime]=useState("")
@@ -19,11 +20,17 @@ function BookingPage() {
 
 
   return (
-
+<>
    
 <div className="bg-white">
   <div className="pt-6">
     <h1 className="text-black text-2xl items-centre my-8 justify-center flex">The Villa @ Diani/Galu Beach, Aircon, Pool</h1>
+
+
+<div class="bg-white">
+  <div class="pt-6">
+    <h1 class="text-black text-2xl items-centre my-8 justify-center flex">The Villa @ Diani/Galu Beach, Aircon, Pool</h1>
+
 
 
    
@@ -178,7 +185,7 @@ function BookingPage() {
   
 
 
-    
+    </>
   )
 }
 
