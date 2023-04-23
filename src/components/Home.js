@@ -1,6 +1,10 @@
-import "./Home.css";
-import Carousel from "react-bootstrap/Carousel";
+
+import './Home.css'
+import './NavBar'
+import Footer from './Footer';
+import Carousel from 'react-bootstrap/Carousel';
 import { Link } from "react-router-dom";
+
 
 function Home({ user }) {
   if (user) {

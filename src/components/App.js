@@ -10,7 +10,9 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import Footer from "./Footer";
 import Spaces from "./Spaces/Spaces";
-// import Reserve from "./Reserve";
+import Reserve from "./Reserve";
+
+
 
 
 
