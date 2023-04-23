@@ -4,7 +4,7 @@ import "./styles.css";
 
 function Filter({ selectedFilter, setSelectedFilter }) {
   return (
-    <div className="filter-div">
+    <div className="filter-div text-center">
       {links.map((item, i) => (
         <div
           key={i}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BiCurrentLocation } from "react-icons/bi";
 import { IoMdWifi } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 function BookingPage() {
   const [checkInTime, setCheckInTime] = useState("");
@@ -184,13 +185,14 @@ function BookingPage() {
                 </form>
                 <p>Check-in time: {checkInTime}</p>
                 <p>Check-out time: {checkOutTime}</p>
-
+               <Link to="/reserve">
                 <button
                   type="submit"
                   className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 >
                   RESERVE
                 </button>
+                </Link>
               </div>
             </div>
 

@@ -1,12 +1,60 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import CustomPopup from "./custom-popup";
+import { DateRangePicker } from 'react-date-range';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 function Reserve() {
+   
   const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const handleSelect = (ranges) => {
+      setStartDate(ranges.selection.startDate);
+      setEndDate(ranges.selection.endDate);
+    };
+    const selectionRange = {
+      startDate,
+      endDate,
+      key: 'selection',
+    };
+
+    const handleOnclick = () => {
+      // submit the data of the calendar
+      console.log("start date", startDate);
+      console.log("end date", endDate);
+
+    };
+
+
+  const [visibility, setVisibility] = useState(false);
+  const popupCloseHandler = () => {
+    setVisibility(false);
+  };
 
   return (
+    <>
+ <CustomPopup
+   onClose = {popupCloseHandler}
+    show = {visibility}
+    title = "Payment Successful"
+
+  >
+    <div className="flex flex-col justify-center items-center">
+      <div>
+    <DateRangePicker
+        ranges={[selectionRange]}
+        onChange={handleSelect}
+      />
+    </div>
+    <button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    onClick={handleOnclick}>Ok</button>
+
+      </div>
+      </CustomPopup>
+
+
     <div className="flex flex-row m-4 justify-evenly">
       <div className="">
         <div className="flex flex-row mt-3 ml-3">
@@ -37,7 +85,13 @@ function Reserve() {
           </div>
           <div className="flex flex-row justify-between">
             <h1 className="text-xl font-bold">Dates</h1>
-            <p className="font-semi-bold text-2xl">Edit</p>
+            <p className="font-semi-bold text-2xl
+            cursor-pointer hover:text-orange-400
+            underline text-blue-500
+             " onClick={() => setVisibility(true)}
+            >
+              Edit
+            </p>
           </div>
           <div>
             <p>May 12-May 20</p>
@@ -45,7 +99,9 @@ function Reserve() {
 
           <div className="flex flex-row justify-between">
             <h1 className="text-xl font-bold">Guests</h1>
-            <p className="font-semi-bold text-2xl">Edit</p>
+            <p className="font-semi-bold text-2xl">
+              <a href="">Edit</a> 
+              </p>
           </div>
           <div>
             <div>
@@ -59,6 +115,7 @@ function Reserve() {
               </button>
             </div>
           </div>
+        </div>
         </div>
         <div className="max-w-lg p-6 pr-5 mx-4 my-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <div className="flex flex-row ">
@@ -86,7 +143,6 @@ function Reserve() {
             </p>
           </div>
           <hr />
-
           <div>
             <h5 className="font-bold">Price Details</h5>
           </div>
@@ -101,7 +157,7 @@ function Reserve() {
           </div>
         </div>
       </div>
-    </div>
+   </>
   );
 }
 
