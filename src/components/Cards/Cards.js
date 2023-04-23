@@ -3,17 +3,24 @@ import "./styles.css";
 //import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 import hotel from "../../assets/hotels/hotel-1.jpeg";
 
-
+import { useNavigate } from "react-router-dom";
 
 
 function Card() {
+  const navigate = useNavigate();
   return (
     <div className="card-container">
-        <div className="card-box">
+      
+        <div className="card-box"
+        onClick={() => {
+         //move to the next page
+          navigate("/booking");
+        }
+        }>
+       
           <img src={hotel} className="card-img" alt="img"/>
             <div className="card-info-flex">
                 <h4 className="name">Diani Beach</h4>
-                
             </div>
             <p className="location" style={{margin:0,color: "var(--font-grey"}}>Mombasa</p>
             <p className="description" style={{margin:0,color: "var(--font-grey"}}>Beach and sunset views</p>

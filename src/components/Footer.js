@@ -5,7 +5,8 @@ import Logo from '../assets/Images/navbar.png'
 
 function Footer() {
   return (
-   
+
+    <div className="footers">
   
   <footer aria-label="Site Footer" class="bg-slate-900">
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -347,10 +348,11 @@ function Footer() {
         </div>
       </div>
     </div>
-  </footer>
-  
+
+    </footer>
+
+</div>
   )
 }
-
 
 export default Footer

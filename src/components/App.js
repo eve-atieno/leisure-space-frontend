@@ -11,12 +11,7 @@ import Home from "./Home";
 import Footer from "./Footer";
 import Spaces from "./Spaces/Spaces";
 import Reserve from "./Reserve";
-
-
-
-
-
-
+import AuthProvider  from "./AuthContext";
 function App() {
 
     const [reviews, setReviews] = useState([
@@ -34,6 +29,7 @@ function App() {
     
   return (
     <BrowserRouter>
+      <AuthProvider>
       <NavBar/>
       <Routes>
         <Route path="/" element={[<Home/>]} />
@@ -41,6 +37,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/spaces" element={<Spaces />} />
+        <Route path="/reserve" element={<Reserve />} />
         {/* <Route path="/reserve" element={<Reserve />} /> */}
         <div className="flex flex-row justify-evenly">
     <ReviewList 
@@ -54,7 +51,7 @@ function App() {
         
       </Routes>
       <Footer/>
-    
+    </AuthProvider>
       </BrowserRouter>
       
 
