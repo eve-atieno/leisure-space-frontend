@@ -1,9 +1,37 @@
+:root {
+  --black: #000;
+  --grey: #ddd;
+  --font-grey: #717171;
+  --white: #ffffff;
+  --theme: #ff385c;
+  --light-grey: #f7f7f7;
+}
+
+body {
+ 
+  font-family: "Nunito Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card-container{
+  margin: 15px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  grid-gap: 20px;
+  
+  width: 100%;
+  
+}
 .cards-flex {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
-  padding: 1rem 3rem !important;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 3rem;
+  flex-direction: column;
 }
 .card-box {
   margin: 1rem !important;
@@ -27,12 +55,17 @@
   display: flex!important;
   justify-content: space-between !important;
   align-items: flex-start !important;
+  width: 270px!important;
 }
+  
+  
 
-.card-rating {
+
+.rating {
   display: flex!important;
   align-items: center!important;
   gap: 0.25rem !important;
+ 
 }
 
 .card-box .swiper-pagination-bullet-active {
