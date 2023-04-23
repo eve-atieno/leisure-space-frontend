@@ -1,42 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import BookingPage from "./BookingPage";
+import ReviewDetails from "./ReviewDetails";
+import AddReviewForm from "./AddReviewForm";
+import ReviewList from "./ReviewList";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
-import BookingPage from "./BookingPage";
-// 
+import Footer from "./Footer";
+import Spaces from "./Cards/Cards.js"
+import Reserve from "./Reserve";
+
+
+
 
 
 function App() {
-  const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
+    
   return (
-    <>
-      <BrowserRouter>
-        <NavBar user={user} setUser={setUser} />
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/signup">
-          <SignUp />
-        </Route>
-        <Route exact path="/login">
-          <Login setUser={setUser} />
-        </Route>
-        <BookingPage />
-
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={[<Home/>]} />
+        <Route path="/booking" element={[,<BookingPage />]} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/spaces" element={<Spaces />} />
+        {/* <Route path="/reserve" element={<Reserve />} /> */}
         
+      </Routes>
+      <Footer/>
+    
       </BrowserRouter>
-    </>
+      
+
   );
 }
 
