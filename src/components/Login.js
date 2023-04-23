@@ -32,10 +32,13 @@ function Login({ setUser }) {
 
     return (
         <div className="container">
-            <form className="form" onSubmit={handleFormSubmit}>
+            
+
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleFormSubmit}>
                 <h1>Login</h1>
                 <label htmlFor="username">Email</label>
                 <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     type="text"
                     id="username"
                     autoComplete="off"
@@ -52,7 +55,7 @@ function Login({ setUser }) {
                     placeholder="Enter password"
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
             </form>
         </div>
     );
