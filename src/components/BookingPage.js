@@ -1,6 +1,7 @@
 import React ,{useState} from 'react'
 import {BiCurrentLocation} from "react-icons/bi";
 import {IoMdWifi} from "react-icons/io";
+import "./BookingPage.css"
 
 
 function BookingPage() {
@@ -56,7 +57,7 @@ function BookingPage() {
       
     </div>
 
-    <div className="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16">
+    <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,0fr] lg:gap-x-8 lg:px-8 lg:pb-2 lg:pt-5">
       <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
         <h3 className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">Private room in home hosted by bruce</h3>
       </div>
@@ -131,46 +132,48 @@ function BookingPage() {
         
       </div>
 
-      <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
+      <div className=" lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6 lg:mb-10" >
     
         <div>
           <h3 className="sr-only">Description</h3>
 
           <div className="space-y-6">
-            <p className="text-base text-gray-900">4 Geusts 1 bedroom 1 bed</p>
+            <p className="text-base text-gray-900 pl-5">4 Geusts 1 bedroom 1 bed</p>
           </div>
         </div>
 
-        <div className="mt-10 " >
-        <div className="ml-2 flex gap-2" >
+        <div className="mt-8 " >
+        <div className="ml-6 flex gap-2" >
           <IoMdWifi />
 
-          <h3 className="text-sm font-medium text-gray-900 ">Great For Remote Work</h3>
+          <h3 className="text-sm font-medium text-gray-900  ">Great For Remote Work</h3>
         </div>
-          <div className="mt-4">
-            <p className="ml-6 text-gray-400">Fast wifi at 315 Mbps, plus a dedicated workspace in a common area.</p>
+          <div className="mt-4 ml-10">
+            <p className="ml-3 text-gray-400">Fast wifi at 315 Mbps, plus a dedicated workspace in a common area.</p>
            
           </div>
         </div>
         <div Name="mt-10 " >
-        <div className="ml-2 flex gap-2" >
+        <div className="ml-6 flex gap-2" >
           <BiCurrentLocation />
 
           <h3 className="text-sm font-medium text-gray-900 ">Great Location</h3>
         </div>
-          <div className="mt-4">
-            <p className="ml-6 text-gray-400">100% of recent guests gave the location a 5-star rating.</p>
+          <div className="mt-3">
+            <p className="ml-12 text-gray-400">100% of recent guests gave the location a 5-star rating.</p>
            
           </div>
         </div>
 
-        <div className="mt-10">
-          <h2 className="text-sm font-medium text-gray-900">LeisureSpace</h2>
+        <div className="mb-8  p-5">
+          <h2 className="text-sm font-medium text-gray-900  ">LeisureSpace</h2>
 
           <div className="mt-4 space-y-6">
             <p className="text-sm text-gray-600">Every booking includes free protection from Host cancellations,<br/>
             listing inaccuracies<br/>and other issues like trouble checking in.<strong>Learn More</strong></p>
-            <p className=" text-sm text-gray-600 mt-4">Located in Nairobi, Sente Airbnb provides accommodation with free private parking.Kenyatta International Conference Centre is 8 km from the apartment, while Nairobi National Museum is 11 km away. The nearest airport is Wilson Airport, 7 km from Sente Airbnb.</p>
+            <p className=" text-sm text-gray-600 mt-4">Located in Nairobi, Sente Airbnb provides accommodation with free<br/>
+             private parking.Kenyatta International Conference Centre is 8 km from the apartment,<br/> while Nairobi National Museum is 11 km away. The nearest airport is Wilson Airport,<br/>
+              7 km from Sente Airbnb.</p>
           </div>
         </div>
       </div>

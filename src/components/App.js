@@ -9,15 +9,16 @@ import ReviewDetails from "./ReviewDetails";
 import AddReviewForm from "./AddReviewForm";
 import ReviewList from "./ReviewList";
 
-import BookingPage from "./BookingPage";
+
+
 import Footer from "./Footer";
 
 
 function App() {
 
     const [reviews, setReviews] = useState([
-      { id: 1, name: 'John Doe', rating: 4, text: 'Great place!' },
-      { id: 2, name: 'Jane Doe', rating: 5, text: 'I loved it!' },
+      { id: 1, name: 'John Doe', rating: 4, text: 'This place is stunning! I’ve never been at such an Airbnb. It is literally in the middle of nowhere. Exactly what you’re looking for when trying to escape the noice of a big city. Every detail of this place is well done. My designer heart was almost exploding when I discovered the house. I enjoyed my time over there so much. I def wanna come back again.' },
+      { id: 2, name: 'Jane Doe', rating: 5, text: 'Beautiful location. Wonderful break from daily life and the city.' },
     ]);
     const [selectedReview, setSelectedReview] = useState(null);
   
@@ -30,7 +31,8 @@ function App() {
 
   return (
     <>
-    
+
+  
     <BookingPage />
     <ReviewList 
        reviews={reviews} 
