@@ -9,8 +9,9 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import Home from "./Home";
 import Footer from "./Footer";
-import Spaces from "./Cards/Cards.js"
+import Spaces from "./Spaces/Spaces";
 import Reserve from "./Reserve";
+
 
 
 
