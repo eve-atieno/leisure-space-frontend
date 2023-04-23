@@ -28,7 +28,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/spaces" element={<Spaces />} />
-        {/* <Route path="/reserve" element={<Reserve />} /> */}
+        <Route path="/reserve" element={<Reserve />} />
         
       </Routes>
       <Footer/>
