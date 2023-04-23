@@ -1,40 +1,20 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthContext";
 
-function SignUp({ setUser }) {
+function SignUp() {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    let navigator = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setErrors([]);
-    setIsLoading(true);
-    fetch("http://localhost:4000/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    }).then((r) => {
-      setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => {
-          setUser(user);
-        });
-        navigator("/");
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
-  }
+  const { register } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      register(name, email, password);
+  };
 
 
   return (
@@ -46,6 +26,20 @@ function SignUp({ setUser }) {
         <form
             onSubmit={handleSubmit}
          className="flex flex-col items-center  justify-center mt-8">
+            <div className="w-full mb-2 flex flex-col">
+            <label htmlFor="email" className="text-gray-500 font-bold mb-2">
+              Name
+            </label>
+            <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+              type="text"
+              id="name"
+              placeholder="Name"
+              className="border-2 border-gray-400 rounded-lg w-full h-12 px-3 text-lg focus:outline-none focus:border-blue-500"
+              required
+            />
+          </div>
           <div className="w-full mb-2 flex flex-col">
             <label htmlFor="email" className="text-gray-500 font-bold mb-2">
               Email
@@ -77,6 +71,23 @@ function SignUp({ setUser }) {
               required
             />
           </div>
+          <div className="w-full mb-2 flex flex-col">
+          <label
+            htmlFor="password"
+            className="text-gray-500 font-bold mb-2"
+          >
+            Password
+          </label>
+          <input
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+            type="password"
+            id="password"
+            placeholder="Confirm Password"
+            className="border-2 border-gray-400 rounded-lg w-full h-12 px-3 text-lg focus:outline-none focus:border-blue-500"
+            required
+          />
+        </div>
           <button className="bg-orange-600 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-full mt-4">
             Sign Up
           </button>

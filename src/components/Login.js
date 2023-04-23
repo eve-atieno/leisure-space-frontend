@@ -1,36 +1,15 @@
 import {useContext, useState} from 'react'
-import { useNavigate } from "react-router-dom";
+import {AuthContext} from './AuthContext'
 
-function Login ({ setUser }){
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [errors, setErrors] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    let navigator = useNavigate();
+function Login (){
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      setIsLoading(true);
-      fetch("http://localhost:4000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      }).then((r) => {
-        setIsLoading(false);
-        if (r.ok) {
-          r.json().then((user) => {
-            setUser(user)
-            sessionStorage.setItem('user', user)
-          });
-          navigator("/")
-        } else {
-          r.json().then((err) => setErrors(err.errors));
-        }
-      });
-    } 
-
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const {login} = useContext(AuthContext)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    login(email, password)
+}
     return (
 
 //         <div className="container">
@@ -114,7 +93,6 @@ function Login ({ setUser }){
       </div>
     </div>
         </>
-
     )
 }
 

@@ -11,12 +11,13 @@ import Home from "./Home";
 import Footer from "./Footer";
 import Spaces from "./Spaces/Spaces";
 import Reserve from "./Reserve";
-
+import AuthProvider  from "./AuthContext";
 function App() {
 
     
   return (
     <BrowserRouter>
+      <AuthProvider>
       <NavBar/>
       <Routes>
         <Route path="/" element={[<Home/>]} />
@@ -28,7 +29,7 @@ function App() {
         
       </Routes>
       <Footer/>
-    
+    </AuthProvider>
       </BrowserRouter>
       
 
