@@ -14,6 +14,18 @@ import Reserve from "./Reserve";
 import AuthProvider  from "./AuthContext";
 function App() {
 
+    const [reviews, setReviews] = useState([
+      { id: 1, name: 'John Doe', rating: 4, text: 'This place is stunning!. Every detail of this place is well done. I enjoyed my time over there so much. ' },
+      { id: 2, name: 'Jane Doe', rating: 5, text: 'Beautiful location. Wonderful break from daily life and the city.' },
+    ]);
+    const [selectedReview, setSelectedReview] = useState(null);
+  
+    const handleAddReview = (newReview) => {
+      setReviews([...reviews, { id: Date.now(), ...newReview }]);
+    };
+    const handleReviewSelect = (review) => {
+      setSelectedReview(review);
+    };
     
   return (
     <BrowserRouter>
@@ -26,6 +38,16 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/spaces" element={<Spaces />} />
         <Route path="/reserve" element={<Reserve />} />
+        {/* <Route path="/reserve" element={<Reserve />} /> */}
+        <div className="flex flex-row justify-evenly">
+    <ReviewList 
+       reviews={reviews} 
+       onReviewSelect={handleReviewSelect} />
+
+      <AddReviewForm 
+      onAddReview={handleAddReview} />
+      {selectedReview && <ReviewDetails review={selectedReview} />}
+      </div>
         
       </Routes>
       <Footer/>

@@ -6,9 +6,7 @@ export const AuthContext = createContext();
 
 export default function AuthProvider({ children }) {
   const navigate = useNavigate();
-
   const [user, setUser] = useState();
-
   const [change, setOnChange] = useState(false);
 
   // login
