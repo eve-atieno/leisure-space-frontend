@@ -17,7 +17,7 @@ import Footer from "./Footer";
 function App() {
 
     const [reviews, setReviews] = useState([
-      { id: 1, name: 'John Doe', rating: 4, text: 'This place is stunning! I’ve never been at such an Airbnb. It is literally in the middle of nowhere. Exactly what you’re looking for when trying to escape the noice of a big city. Every detail of this place is well done. My designer heart was almost exploding when I discovered the house. I enjoyed my time over there so much. I def wanna come back again.' },
+      { id: 1, name: 'John Doe', rating: 4, text: 'This place is stunning!. Every detail of this place is well done. I enjoyed my time over there so much. ' },
       { id: 2, name: 'Jane Doe', rating: 5, text: 'Beautiful location. Wonderful break from daily life and the city.' },
     ]);
     const [selectedReview, setSelectedReview] = useState(null);
@@ -30,10 +30,13 @@ function App() {
     };
 
   return (
+    
     <>
+  
 
   
     <BookingPage />
+    <div className="flex flex-row justify-evenly">
     <ReviewList 
        reviews={reviews} 
        onReviewSelect={handleReviewSelect} />
@@ -41,6 +44,7 @@ function App() {
       <AddReviewForm 
       onAddReview={handleAddReview} />
       {selectedReview && <ReviewDetails review={selectedReview} />}
+      </div>
 
       {/* <NavBar user={user} setUser={setUser} />
       <main>
@@ -65,6 +69,7 @@ function App() {
         {/* )}
       </main> */}
     </>
+
   );
 }
 

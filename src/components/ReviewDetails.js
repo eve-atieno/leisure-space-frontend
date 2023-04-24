@@ -1,12 +1,14 @@
 import React from 'react';
 
+
 const ReviewDetails = ({ review }) => {
   return (
     <div>
-      <h2>{review.name}</h2>
+      <h2 className="title">{review.name}</h2>
       <p>Rating: {review.rating}</p>
       <p>{review.text}</p>
     </div>
+    
   );
 };
 

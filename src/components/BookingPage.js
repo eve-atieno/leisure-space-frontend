@@ -1,7 +1,7 @@
 import React ,{useState} from 'react'
 import {BiCurrentLocation} from "react-icons/bi";
 import {IoMdWifi} from "react-icons/io";
-import "./BookingPage.css"
+
 
 
 function BookingPage() {
@@ -132,7 +132,7 @@ function BookingPage() {
         
       </div>
 
-      <div className=" lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6 lg:mb-10" >
+      <div className=" lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200  lg:pr-8 lg:pt-6 lg:mb-10" >
     
         <div>
           <h3 className="sr-only">Description</h3>
@@ -165,7 +165,7 @@ function BookingPage() {
           </div>
         </div>
 
-        <div className="mb-8  p-5">
+        <div className="  p-5">
           <h2 className="text-sm font-medium text-gray-900  ">LeisureSpace</h2>
 
           <div className="mt-4 space-y-6">
