@@ -1,6 +1,5 @@
 import React from 'react'
 import ReviewItem from "./ReviewItem"
-import "./ReviewList.css"
 
 
 

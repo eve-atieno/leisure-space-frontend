@@ -1,4 +1,4 @@
-.nx, .px{
+/* .nx, .px{
     background: rgb(5, 5, 40);
     color: #fff;
 }
@@ -6,11 +6,16 @@
     width: 100%;
 }
 footer, .nx{
+    margin-bottom: 20px!important;
     max-width: 100%!important;
+
 }
-.xn-v{
-    /* border: 5px solid red; */
-    /* margin-bottom: 0%;
-    position: absolute;
-    top: 100%; */
-}
+
+
+} */
+/* footer{
+    height: 100%;
+    background: rgb(5, 5, 40);
+    color: #fff;
+} */
+

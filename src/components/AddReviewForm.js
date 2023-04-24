@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./AddReviewForm.css"
+
 
 const AddReviewForm = ({ onAddReview }) => {
   const [name, setName] = useState('');

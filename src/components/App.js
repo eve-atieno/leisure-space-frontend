@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
-// import { Switch, Route } from "react-router-dom";
-// import SignUp from "./SignUp";
-// import Login from "./Login";
-// import NavBar from "./NavBar";
-// import Home from "./Home";
 import BookingPage from "./BookingPage";
 import ReviewDetails from "./ReviewDetails";
 import AddReviewForm from "./AddReviewForm";
 import ReviewList from "./ReviewList";
-
-
-
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import SignUp from "./SignUp";
+import Login from "./Login";
+import NavBar from "./NavBar";
+import Home from "./Home";
 import Footer from "./Footer";
+import Spaces from "./Spaces/Spaces";
+import Reserve from "./Reserve";
+
+
+
+
 
 
 function App() {
@@ -28,15 +31,18 @@ function App() {
     const handleReviewSelect = (review) => {
       setSelectedReview(review);
     };
-
-  return (
     
-    <>
-  
-
-  
-    <BookingPage />
-    <div className="flex flex-row justify-evenly">
+  return (
+    <BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={[<Home/>]} />
+        <Route path="/booking" element={[,<BookingPage />]} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/spaces" element={<Spaces />} />
+        {/* <Route path="/reserve" element={<Reserve />} /> */}
+        <div className="flex flex-row justify-evenly">
     <ReviewList 
        reviews={reviews} 
        onReviewSelect={handleReviewSelect} />
@@ -45,30 +51,12 @@ function App() {
       onAddReview={handleAddReview} />
       {selectedReview && <ReviewDetails review={selectedReview} />}
       </div>
-
-      {/* <NavBar user={user} setUser={setUser} />
-      <main>
-        {user ? (
-          <Switch>
-            <Route path="/">
-              <Home user={user}/>
-            </Route>
-          </Switch>
-        ) : (
-          <Switch>
-            <Route path="/signup">
-              <SignUp setUser={setUser} />
-            </Route>
-            <Route path="/login">
-              <Login setUser={setUser} />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch> */}
-        {/* )}
-      </main> */}
-    </>
+        
+      </Routes>
+      <Footer/>
+    
+      </BrowserRouter>
+      
 
   );
 }
