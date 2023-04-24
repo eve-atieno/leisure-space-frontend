@@ -89,6 +89,12 @@ function Login (){
           <button className="bg-orange-600 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-full mt-4">
             Log In
           </button>
+          <div className="flex flex-col items-center justify-center mt-4">
+            <p className="text-white text-lg">Don't have an account?</p>
+            <a href="/signup" className="text-orange-600 text-lg">
+              sign up
+            </a>
+          </div>
         </form>
       </div>
     </div>

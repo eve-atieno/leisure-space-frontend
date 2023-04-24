@@ -41,13 +41,20 @@ export default function AuthProvider({ children }) {
           sessionStorage.setItem("user", JSON.stringify(response.user));
           sessionStorage.setItem("jwtToken", response.jwt);
           Swal.fire({
-            position: "center",
+            position: "top-end",
             icon: "success",
             title: "LoggedIn successfully!",
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/");
+          // navigate("/");
+          if (window.location.pathname === "/booking") {
+            navigate("/reserve");
+          }
+          else if(window.location.pathname === "/login"){
+            navigate("/");
+          }
+          
         } else {
           console.log("Not logged in, something went wrong");
         }
@@ -138,7 +145,7 @@ export default function AuthProvider({ children }) {
 console.log(user)
 // fetch user
   useEffect(() => {
-    fetch("https://denco.onrender.com/", {
+    fetch("", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

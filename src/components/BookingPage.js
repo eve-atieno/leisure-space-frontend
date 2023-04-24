@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { BiCurrentLocation } from "react-icons/bi";
 import { IoMdWifi } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { useContext } from 'react'
+import { AuthContext } from './AuthContext'
+import { useParams } from 'react-router-dom';
 
 
-function BookingPage() {
 
-
+function BookingPage({spaces}) {
+  const {id} = useParams();
+console.log(id);
+  const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+console.log(spaces)
   const [checkInTime, setCheckInTime] = useState("");
   const [checkOutTime, setCheckOutTime] = useState("");
 
@@ -18,15 +24,16 @@ function BookingPage() {
     const currentTime = new Date().toLocaleString();
     setCheckOutTime(currentTime);
   };
-
+  const space = spaces.find((space) => space.id === parseInt(id));
+console.log(space.name)
   return (
     <div className="bg-white">
       <div className="bg-white">
+      
         <div className="pt-6">
           <h1 className="text-black text-2xl items-centre my-8 justify-center flex">
-            The Villa @ Diani/Galu Beach, Aircon, Pool
+            {space.name}
           </h1>
-
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
               <img
@@ -69,6 +76,9 @@ function BookingPage() {
             </div>
           </div>
         </div>
+
+     
+
 
         <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,0fr] lg:gap-x-8 lg:px-8 lg:pb-2 lg:pt-5">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
@@ -179,7 +189,7 @@ function BookingPage() {
             </form>
             <p>Check-in time: {checkInTime}</p>
             <p>Check-out time: {checkOutTime}</p>
-         
+            {isLoggedIn ? (
          <Link to="/reserve">
             <button
               type="button"
@@ -187,7 +197,17 @@ function BookingPage() {
             >
               RESERVE
             </button>
-      </Link>
+          </Link>
+            ) : (
+              <Link to="/login">
+                <button
+                  type="button"
+                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  LOGIN TO RESERVE
+                </button>
+              </Link>
+            )}
           </div>
         </div>
 
