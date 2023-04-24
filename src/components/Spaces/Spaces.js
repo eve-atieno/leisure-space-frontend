@@ -7,8 +7,10 @@ import Cards from "../Cards/Cards";
 import Filter from "../Filter";
 
 
-function Spaces (){
+function Spaces ({spaces, setSpaces}){
+
   const [selectedFilter, setSelectedFilter] = useState(0);
+
     return (
      
         <div className="categories justify-centre">
@@ -17,7 +19,17 @@ function Spaces (){
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
       />
-      <Cards/>
+      <div className="flex flex-row justify-evenly">
+      {spaces.map((space) => {
+        return (
+          <Cards
+            key={space.id}
+            spaces={space}
+            setSpaces={setSpaces}
+          />
+        );
+      })}
+      </div>
      
     </div>
    );

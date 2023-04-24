@@ -91,6 +91,7 @@ function SignUp() {
           <button className="bg-orange-600 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-full mt-4">
             Sign Up
           </button>
+         
         </form>
       </div>
     </div>
