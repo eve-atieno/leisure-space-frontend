@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from '../assets/Images/navbar.png'
+import { Link } from "react-router-dom";
 
 
 
@@ -18,7 +19,7 @@ function Footer() {
           <div class="col-span-2">
             <div>
               <h2 class="text-2xl font-bold text-white">
-                Get the latest news!
+                Leisure-space
               </h2>
   
               <p class="mt-4 text-white">
@@ -96,7 +97,9 @@ function Footer() {
               <ul class="space-y-4 text-sm">
                 <li>
                   <a href="#" class="text-white transition hover:opacity-75">
+                  <Link to="/about" class="text-white transition hover:opacity-75">
                     About
+                  </Link>
                   </a>
                 </li>
   
