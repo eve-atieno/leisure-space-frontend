@@ -12,6 +12,8 @@ import Footer from "./Footer";
 import Spaces from "./Spaces/Spaces";
 import Reserve from "./Reserve";
 import AuthProvider  from "./AuthContext";
+import About from './About'
+
 function App() {
 
     const [reviews, setReviews] = useState([
@@ -38,6 +40,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/spaces" element={<Spaces />} />
         <Route path="/reserve" element={<Reserve />} />
+        <Route path="/about" element={<About />} />
         {/* <Route path="/reserve" element={<Reserve />} /> */}
         <div className="flex flex-row justify-evenly">
     <ReviewList 
