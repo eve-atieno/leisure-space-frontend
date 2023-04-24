@@ -1,8 +1,8 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../components/AuthContext";
 
-function SignUp() {
+function CreateAdmin() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,8 +21,8 @@ function SignUp() {
     <>
     <div className="flex flex-col items-center justify-center h-screen w-screen bg-gray-100">
       <div className="flex flex-col items-center justify-center bg-slate-900 h-auto rounded-lg shadow-2xl max-w-md w-11/12 mb-2 p-8">
-        <h1 className="text-4xl mt-5 text-orange-600 font-bold">Sign Up</h1>
-        <p className="text-white text-2xl">Create an account</p>
+        <h1 className="text-4xl mt-5 text-orange-600 font-bold">Admin SignUp</h1>
+        <p className="text-white text-2xl">Create an Admin Account</p>
         <form
             onSubmit={handleSubmit}
          className="flex flex-col items-center  justify-center mt-8">
@@ -89,9 +89,8 @@ function SignUp() {
           />
         </div>
           <button className="bg-orange-600 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-full mt-4">
-            Sign Up
+            Create Admin
           </button>
-         
         </form>
       </div>
     </div>
@@ -99,4 +98,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default CreateAdmin;

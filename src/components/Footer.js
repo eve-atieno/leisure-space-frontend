@@ -1,24 +1,25 @@
 import React from "react";
 import Logo from '../assets/Images/navbar.png'
+import { Link } from "react-router-dom";
 
 
 
 function Footer() {
   return (
-   
+
+    <div className="footers">
   
   <footer aria-label="Site Footer" class="bg-slate-900">
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="lg:flex lg:items-start lg:gap-8">
-       
-  
+
         <div
           class="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16"
         >
           <div class="col-span-2">
             <div>
               <h2 class="text-2xl font-bold text-white">
-                Get the latest news!
+                Leisure-space
               </h2>
   
               <p class="mt-4 text-white">
@@ -96,7 +97,9 @@ function Footer() {
               <ul class="space-y-4 text-sm">
                 <li>
                   <a href="#" class="text-white transition hover:opacity-75">
+                  <Link to="/about" class="text-white transition hover:opacity-75">
                     About
+                  </Link>
                   </a>
                 </li>
   
@@ -347,10 +350,11 @@ function Footer() {
         </div>
       </div>
     </div>
-  </footer>
-  
+
+    </footer>
+
+</div>
   )
 }
-
 
 export default Footer
