@@ -12,6 +12,10 @@ import Footer from "./Footer";
 import Spaces from "./Spaces/Spaces";
 import Reserve from "./Reserve";
 import AuthProvider  from "./AuthContext";
+
+import AddSpace from "../admin/AddSpace";
+import CreateAdmin from "../admin/CreateAdmin";
+
 import About from './About'
 
 function App() {
@@ -40,7 +44,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/spaces" element={<Spaces />} />
         <Route path="/reserve" element={<Reserve />} />
-        <Route path="/about" element={<About />} />
+
+        <Route path="/addspace" element={<AddSpace />} />
+        <Route path="/createadmin" element={<CreateAdmin />} />
+
+
         {/* <Route path="/reserve" element={<Reserve />} /> */}
         <div className="flex flex-row justify-evenly">
     <ReviewList 
