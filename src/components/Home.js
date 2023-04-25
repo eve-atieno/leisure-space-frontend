@@ -79,9 +79,8 @@ function Home({ user }) {
               <div className="flex md:flex-row flex-col-reverse md:items-stretch items-center justify-center">
                 <div className="md:py-20 xl:w-1/2 sm:w-1/2 lg:mr-20 md:mr-6 flex flex-col md:items-end items-center justify-center xl:mr-28">
                   <div className="flex flex-col items-center justify-center">
-                    <h1 className="md:text-5xl text-3xl font-bold text-center text-gray-800">Wild Goose Chase</h1>
-                    <p className="sm:w-96 w-full mt-6 text-base leading-6 text-center text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                      molestiae quas vel sint commodi repudiandae consequuntur</p>
+                    <h1 className="md:text-5xl text-3xl font-bold text-center text-gray-800">LEISURE SPACE</h1>
+                    <p className="sm:w-96 w-full mt-6 text-base leading-6 text-center text-gray-600"></p>
                     <div className="md:mt-14 mt-12 flex flex-col items-center">
                       <div className="w-20 h-20 bg-white shadow rounded-full flex items-center justify-center" role="img" aria-label="money">
                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">

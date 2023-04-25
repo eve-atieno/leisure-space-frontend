@@ -23,7 +23,7 @@ function Footer() {
               </h2>
   
               <p class="mt-4 text-white">
-                Is a website that allows people to book n fulfil emotional needs 
+                Is a website that allows people to book and fulfil emotional needs 
               </p>
             </div>
           </div>
