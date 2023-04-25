@@ -75,7 +75,7 @@ function Footer() {
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" class="text-white transition hover:opacity-105">
                     HR Consulting
                   </a>
                 </li>

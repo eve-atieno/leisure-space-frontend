@@ -107,10 +107,8 @@ function Home({ user }) {
                           <path d="M17 1C19.1217 1 21.1566 1.84286 22.6569 3.34315C24.1571 4.84344 25 6.87827 25 9" stroke="#4338CA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                       </div>
-                      <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                        nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                        tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-                        quia.</p>
+                      <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">Phone number 07941178-    
+                                                                                                      Email leisurespace@gmail.com</p>
                     </div>
                     {/* <div className="mt-7 flex flex-col items-center">
                       <div className="w-20 h-20 bg-white shadow rounded-full flex items-center justify-center" role="img" aria-label="ideas">
