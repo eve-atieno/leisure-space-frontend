@@ -23,8 +23,7 @@ function Footer() {
               </h2>
   
               <p class="mt-4 text-white">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
-                cupiditate quae nam molestias.
+                Is a website that allows people to book n fulfil emotional needs 
               </p>
             </div>
           </div>
