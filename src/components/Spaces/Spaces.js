@@ -19,7 +19,9 @@ function Spaces ({spaces, setSpaces}){
         selectedFilter={selectedFilter}
         setSelectedFilter={setSelectedFilter}
       />
-      <div className="flex flex-row justify-evenly">
+      <div className="
+      grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2
+      ">
       {spaces.map((space) => {
         return (
           <Cards

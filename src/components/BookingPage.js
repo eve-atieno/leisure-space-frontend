@@ -25,7 +25,14 @@ console.log(spaces)
     setCheckOutTime(currentTime);
   };
   const space = spaces.find((space) => space.id === parseInt(id));
-console.log(space.name)
+  //image
+  const image = space.media[1].image_url;
+  console.log(image);
+  //price
+  const price = space.price;
+  console.log(price);
+
+
   return (
     <div className="bg-white">
       <div className="bg-white">
@@ -37,7 +44,7 @@ console.log(space.name)
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
               <img
-                src="https://www.dailynautica.com/wp-content/uploads/2020/12/Air-96-Nauta-Design-The-Island.jpg"
+                src= {space.media[0].image_url}
                 alt="."
                 class="h-full w-full object-cover object-center"
               />
@@ -45,14 +52,14 @@ console.log(space.name)
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src="https://tcdconstruction.co.uk/wp-content/uploads/2018/09/office-interior-design-conference-room.jpg"
+                  src={space.media[1].image_url}
                   alt="."
                   class="h-full w-full object-cover object-center"
                 />
               </div>
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src="https://assets.vogue.com/photos/60a55df57881505c9fecf8af/master/w_1600%2Cc_limit/dc60abc6-a945-4b02-9b23-cc00d1077cd6.jpg"
+                  src={space.media[2].image_url}
                   alt="."
                   class="h-full w-full object-cover object-center"
                 />
@@ -61,14 +68,14 @@ console.log(space.name)
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src="https://insideparkcityrealestate.com/wp-content/uploads/2020/01/Airbnb-while-selling-your-house.jpg"
+                  src={space.media[3].image_url}
                   alt="."
                   class="h-full w-full object-cover object-center"
                 />
               </div>
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src="https://travelfreak.com/wp-content/uploads/2019/10/homeaway-vs-airbnb-vs-vrbo.jpg"
+                  src={space.media[4].image_url}
                   alt="."
                   class="h-full w-full object-cover object-center"
                 />
@@ -89,7 +96,7 @@ console.log(space.name)
 
           <div className="mt-4 lg:row-span-3 lg:mt-0">
             <h2 className="sr-only">Product information</h2>
-            <p className="text-3xl tracking-tight text-gray-900">$192/day</p>
+            <p className="text-3xl tracking-tight text-gray-900">Ksh {space.price}/day</p>
 
             <div className="mt-6">
               <h3 className="sr-only">Reviews</h3>
@@ -279,6 +286,17 @@ console.log(space.name)
             </div>
           </div>
         </div>
+
+  {/* <div className="flex flex-row justify-evenly"> */}
+    {/* <ReviewList 
+       reviews={reviews} 
+       onReviewSelect={handleReviewSelect} />
+
+      <AddReviewForm 
+      onAddReview={handleAddReview} />
+      {selectedReview && <ReviewDetails review={selectedReview} />}
+      </div> */}  
+
       </div>
     </div>
   );
