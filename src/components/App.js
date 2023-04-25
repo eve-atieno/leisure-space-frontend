@@ -16,7 +16,6 @@ import AuthProvider  from "./AuthContext";
 import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
 
-import About from './About'
 
 function App() {
 
@@ -53,32 +52,32 @@ function App() {
       <AuthProvider>
       <NavBar/>
       <Routes>
-        <Route path="/" element={[<Home/>]} />
-        <Route path="/booking/:id" element={[,<BookingPage
+        <Route path="/" element={<Home/>} />
+         <Route path="/booking/:id" element={<BookingPage
         spaces={spaces}
-        />]} />
+        />} />
+        
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/spaces" element={<Spaces 
         spaces={spaces}
-        setSpaces={setSpaces}
-         />} />
+        setSpaces={setSpaces}/>} />
+     
         <Route path="/reserve" element={<Reserve />} />
-
+  
         <Route path="/addspace" element={<AddSpace />} />
         <Route path="/createadmin" element={<CreateAdmin />} />
 
 
-        {/* <Route path="/reserve" element={<Reserve />} /> */}
-        <div className="flex flex-row justify-evenly">
-    <ReviewList 
+        {/* <div className="flex flex-row justify-evenly"> */}
+    {/* <ReviewList 
        reviews={reviews} 
        onReviewSelect={handleReviewSelect} />
 
       <AddReviewForm 
       onAddReview={handleAddReview} />
       {selectedReview && <ReviewDetails review={selectedReview} />}
-      </div>
+      </div> */}  
         
       </Routes>
       <Footer/>
