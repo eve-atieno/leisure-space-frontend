@@ -51,14 +51,14 @@ function AddSpace() {
           method="PATCH"
           className="edit-form"
           style={{
-            width: "75%",
+            width: "60%",
             border: "1px solid #ccc",
             padding: "20px",
             marginLeft: "auto",
             marginRight: "auto",
             marginTop: "50px",
             backgroundColor: "#f5f5f5",
-            borderRadius: "5px",
+            borderRadius: "10px",
             boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)",
             marginBottom: "20px",
           }}
