@@ -1,4 +1,4 @@
-/* .nx, .px{
+.nx, .px{
     background: rgb(5, 5, 40);
     color: #fff;
 }
@@ -12,10 +12,10 @@ footer, .nx{
 }
 
 
-} */
-/* footer{
+
+footer{
     height: 100%;
     background: rgb(5, 5, 40);
     color: #fff;
-} */
+}
 
