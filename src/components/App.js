@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import BookingPage from "./BookingPage";
-import ReviewDetails from "./ReviewDetails";
 import AddReviewForm from "./AddReviewForm";
 import ReviewList from "./ReviewList";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
@@ -18,35 +17,53 @@ import Invoice from "./Invoice/Invoice";
 
 
 function App() {
-
-  const [spaces, setSpaces] = useState([]);
-
-
+  
     const [reviews, setReviews] = useState([
-      { id: 1, name: 'John Doe', rating: 4, text: 'This place is stunning!. Every detail of this place is well done. I enjoyed my time over there so much. ' },
-      { id: 2, name: 'Jane Doe', rating: 5, text: 'Beautiful location. Wonderful break from daily life and the city.' },
+      { id: 1, name: 'John Doe', rating: 4, text: 'Great product!' },
+      { id: 2, name: 'Jane Doe', rating: 5, text: 'I loved it!' },
     ]);
-    const [selectedReview, setSelectedReview] = useState(null);
+  
   
     const handleAddReview = (newReview) => {
       setReviews([...reviews, { id: Date.now(), ...newReview }]);
     };
     const handleReviewSelect = (review) => {
-      setSelectedReview(review);
+      // setSelectedReview(review);
+
+
     };
 
-    // Fech data from API
+  const [spaces, setSpaces] = useState([]);
 
-    useEffect(() => {
-      fetch("http://127.0.0.1:3000/spaces")
-        .then((res) => res.json())
-        .then((data) => {
-          setSpaces(data);
-          
-        });
-    }, []);
+  useEffect(() => {
+    fetch('http://127.0.0.1:4000/spaces')
+      .then((res) => res.json())
+      .then((data) => {
+        setSpaces(data);
+      });
+  }, []);
 
-    
+
+  
+  useEffect(() => {
+    fetch('http://127.0.0.1:4000/reviews')
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(Array.isArray(data) ? data : [])
+
+      })
+      .catch((error) =>{
+        console.log(error)
+      })
+  }, []);
+
+  console.log(reviews)
+
+  // function AddReview
+
+
+  
+
   return (
     <BrowserRouter>
       <AuthProvider>

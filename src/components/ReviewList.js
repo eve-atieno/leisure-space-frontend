@@ -1,13 +1,11 @@
 import React from 'react'
 import ReviewItem from "./ReviewItem"
 
-
-
 const ReviewList = ({reviews}) => {
   
   return (
-    <div className="rev-container"> 
-        <h2>Reviews</h2>
+    <div>
+      
         {reviews.map((review)=>(
             <ReviewItem key={review.id} review={review}/>
         ))}

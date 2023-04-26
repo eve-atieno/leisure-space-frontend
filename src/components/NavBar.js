@@ -7,6 +7,7 @@ import { AuthContext } from './AuthContext'
 import Profile from '../assets/Images/Profile.png'
 
  const NavBar = () => {
+
   const { logout } = useContext(AuthContext);
 
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;

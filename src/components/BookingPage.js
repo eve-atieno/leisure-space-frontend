@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { BiCurrentLocation } from "react-icons/bi";
 import { IoMdWifi } from "react-icons/io";
 import { Link } from "react-router-dom";
-import { useContext } from 'react'
-import { AuthContext } from './AuthContext'
+// import { useContext } from 'react'
+// import { AuthContext } from './AuthContext'
 import { useParams } from 'react-router-dom';
 
 
@@ -15,15 +15,51 @@ console.log(id);
 console.log(spaces)
   const [checkInTime, setCheckInTime] = useState("");
   const [checkOutTime, setCheckOutTime] = useState("");
+  const [totalPrice , setTotalPrice]=useState(0)
 
-  const handleCheckIn = () => {
-    const currentTime = new Date().toLocaleString();
-    setCheckInTime(currentTime);
-  };
-  const handleCheckOut = () => {
-    const currentTime = new Date().toLocaleString();
-    setCheckOutTime(currentTime);
-  };
+  const currentTime = new Date()
+
+  function handleCheckInChange(event){
+    setCheckInTime(event.target.value)
+  }
+
+  function handleCheckOutChange(event){
+    setCheckOutTime(event.target.value)
+  }
+
+  function calculateTotalPrice(){
+    const checkInDate = new Date (checkInTime)
+    const checkOutDate = new Date (checkOutTime)
+
+    if(checkInDate > checkOutDate){
+     alert("Check-out time must be after check-in time")
+    }
+    const timeDiff = checkOutDate.getTime() - checkInDate.getTime()
+    const diffDays = Math.ceil (timeDiff/(1000 * 3600 * 24))
+
+    const basePrice = 800
+    const additionalPricePerDay = 120
+    const pricePerGuest = 150
+    const total = basePrice + (additionalPricePerDay * diffDays * pricePerGuest)
+    
+    setTotalPrice(total)
+  }
+
+
+  // const handleCheckIn = () => {
+  //   const currentTime = new Date().toLocaleString();
+  //   setCheckInTime(currentTime);
+  // };
+  // const handleCheckOut = () => {
+  //   const currentTime = new Date().toLocaleString();
+  //   setCheckOutTime(currentTime);
+  // };
+  // const checkInDate = new Date(checkInTime)
+  // const checkOutDate = new Date(currentTime)
+  // const timeDiff = Math.abs(checkOutDate.getTime() - checkInDate.getTime())
+  // const diffDays = Math.ceil(timeDiff /(1000 * 3600 * 24))
+  // // let totalPrice = diffDays * 1500
+  // setTotalPrice(totalPrice )
   const space = spaces.find((space) => space.id === parseInt(id));
   //image
   const image = space.media[1].image_url;
@@ -171,12 +207,19 @@ console.log(spaces)
             </div>
 
             <form className="mt-10">
+              {totalPrice > 0 &&(
+                <div>
+                  <p>Total Price: ksh{totalPrice}</p>
+                  <p>Time: {currentTime.toDateString()}</p>
+                </div>
+              )}
+              
               <label htmlFor="checkIn">Check-in date and time:</label>
               <input
                 type="datetime-local"
                 id="checkIn"
                 value={checkInTime}
-                onChange={(e) => setCheckInTime(e.target.value)}
+                onChange={handleCheckInChange}
               />
               <br />
               <label htmlFor="checkOut">Check-out date and time:</label>
@@ -184,18 +227,21 @@ console.log(spaces)
                 type="datetime-local"
                 id="checkOut"
                 value={checkOutTime}
-                onChange={(e) => setCheckOutTime(e.target.value)}
+                onChange={handleCheckOutChange}
               />
               <br />
-              <button type="button" onClick={handleCheckIn}>
-                Check-in
-              </button>
-              <button type="button" onClick={handleCheckOut}>
-                Check-out
-              </button>
+              <button type= 'button' onClick={calculateTotalPrice}>calculate Total Price</button>
+              <br/>
+              <label htmlFor="guest">number of guest:</label>
+              <input
+                type="number"
+                id="numberof guest"
+                
+              />
+              
             </form>
-            <p>Check-in time: {checkInTime}</p>
-            <p>Check-out time: {checkOutTime}</p>
+            {/* <p>Check-in time: {checkInTime}</p>
+            <p>Check-out time: {checkOutTime}</p> */}
             {isLoggedIn ? (
          <Link to="/reserve">
             <button
