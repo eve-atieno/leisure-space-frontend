@@ -12,9 +12,9 @@ import Footer from "./Footer";
 import Spaces from "./Spaces/Spaces";
 import Reserve from "./Reserve";
 import AuthProvider  from "./AuthContext";
-
 import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
+import Invoice from "./Invoice/Invoice";
 
 
 function App() {
@@ -67,17 +67,20 @@ function App() {
   
         <Route path="/addspace" element={<AddSpace />} />
         <Route path="/createadmin" element={<CreateAdmin />} />
+        <Route path="/invoice" element={<Invoice />} />
+        
 
 
-        {/* <div className="flex flex-row justify-evenly"> */}
-    {/* <ReviewList 
+
+         {/* <div className="flex flex-row justify-evenly"> 
+     <ReviewList 
        reviews={reviews} 
        onReviewSelect={handleReviewSelect} />
 
       <AddReviewForm 
       onAddReview={handleAddReview} />
       {selectedReview && <ReviewDetails review={selectedReview} />}
-      </div> */}  
+      </div> */}
         
       </Routes>
       <Footer/>
