@@ -15,7 +15,6 @@ import AuthProvider  from "./AuthContext";
 
 import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
-import Invoice from "./Invoice";
 
 
 function App() {
@@ -68,7 +67,6 @@ function App() {
   
         <Route path="/addspace" element={<AddSpace />} />
         <Route path="/createadmin" element={<CreateAdmin />} />
-        <Route path="invoice" element={<Invoice/>} />
 
 
          {/* <div className="flex flex-row justify-evenly"> 
