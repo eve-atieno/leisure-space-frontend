@@ -38,7 +38,7 @@ function Reserve() {
  <CustomPopup
    onClose = {popupCloseHandler}
     show = {visibility}
-    title = "Payment Successful"
+    title = ""
   >
     <div className="flex flex-col justify-center items-center">
       <div>

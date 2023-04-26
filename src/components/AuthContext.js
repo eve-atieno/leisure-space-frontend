@@ -48,16 +48,8 @@ export default function AuthProvider({ children }) {
             timer: 1500,
           });
           // navigate("/");
-          if (window.location.pathname === "/booking") {
-            navigate("/reserve");
-          }
-          else if(window.location.pathname === "/login"){
-            navigate("/");
-          }
-          
-        } else {
-          console.log("Not logged in, something went wrong");
-        }
+          navigate("/");  
+        } 
       });
   };
 

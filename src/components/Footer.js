@@ -23,8 +23,7 @@ function Footer() {
               </h2>
   
               <p class="mt-4 text-white">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
-                cupiditate quae nam molestias.
+                Is a website that allows people to book and fulfil emotional needs 
               </p>
             </div>
           </div>
@@ -42,12 +41,13 @@ function Footer() {
                   placeholder="email"
                   class="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm"
                 />
-  
+               <Link to="signup">
                 <button
                   class="mt-1 w-full bg-orange-500  px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:flex-shrink-0"
                 >
                   Sign Up
                 </button>
+                </Link>
               </div>
             </form>
           </div>
@@ -76,7 +76,7 @@ function Footer() {
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" class="text-white transition hover:opacity-105">
                     HR Consulting
                   </a>
                 </li>

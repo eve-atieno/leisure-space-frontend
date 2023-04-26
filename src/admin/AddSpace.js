@@ -113,21 +113,6 @@ function AddSpace() {
             onChange={handleFormInput}
             style={{ marginBottom: "10px" }}
           />
-          {/* <label htmlfor="category">Category:</label> */}
-          {/* <select
-            id="space_category"
-            name="category_id"
-            onChange={handleFormInput}
-          >
-            <option value="">Select Space Category...</option>
-            {categories.map((option) => (
-              <option key={option.id} value={option.id}>
-                {option.name}
-              </option>
-            ))}
-          </select> */}
-          <br />
-
           <button
             type="submit"
             className="btn btn-primary"

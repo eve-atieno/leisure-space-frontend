@@ -11,20 +11,10 @@ import Footer from "./Footer";
 import Spaces from "./Spaces/Spaces";
 import Reserve from "./Reserve";
 import AuthProvider  from "./AuthContext";
-
 import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
+import Invoice from "./Invoice/Invoice";
 
-
-
-function ReviewsContainer({ spaces, reviews, onReviewSelect, onAddReview }) {
-  return (
-    <>
-      {/* <ReviewList reviews={reviews} onReviewSelect={onReviewSelect} /> */}
-      <AddReviewForm reviews={reviews} spaces={spaces} onAddReview={onAddReview} />
-    </>
-  );
-}
 
 function App() {
   
@@ -77,34 +67,44 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={[<Home />]} />
-          <Route
-            path="/booking/:id"
-            element={[
-              <BookingPage spaces={spaces} />,
-              <ReviewsContainer
-                spaces={spaces}
-                reviews={reviews}
-                onReviewSelect={handleReviewSelect}
-                onAddReview={handleAddReview}
-              />,
-            ]}
-          />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/spaces"
-            element={<Spaces spaces={spaces} setSpaces={setSpaces} />}
-          />
-          <Route path="/reserve" element={<Reserve />} />
-          <Route path="/addspace" element={<AddSpace />} />
-          <Route path="/createadmin" element={<CreateAdmin />} />
-        </Routes>
-        <Footer />
-      </AuthProvider>
-    </BrowserRouter>
+      <NavBar/>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+         <Route path="/booking/:id" element={<BookingPage
+        spaces={spaces}
+        />} />
+        
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/spaces" element={<Spaces 
+        spaces={spaces}
+        setSpaces={setSpaces}/>} />
+     
+        <Route path="/reserve" element={<Reserve />} />
+  
+        <Route path="/addspace" element={<AddSpace />} />
+        <Route path="/createadmin" element={<CreateAdmin />} />
+        <Route path="/invoice" element={<Invoice />} />
+        
+
+
+
+         {/* <div className="flex flex-row justify-evenly"> 
+     <ReviewList 
+       reviews={reviews} 
+       onReviewSelect={handleReviewSelect} />
+
+      <AddReviewForm 
+      onAddReview={handleAddReview} />
+      {selectedReview && <ReviewDetails review={selectedReview} />}
+      </div> */}
+        
+      </Routes>
+      <Footer/>
+    </AuthProvider>
+      </BrowserRouter>
+      
+
   );
 }
 

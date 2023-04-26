@@ -40,13 +40,13 @@ body {
 
 .swiper-container {
   height: 300px;
-  width: 300px;
+  width: 420px;
   overflow: hidden;
 }
 
 .card-img {
-  height: 270px!important;
-  width: 270px!important;
+  height: 370px!important;
+  width: 410px!important;
   object-fit: cover!important;
   border-radius: 0.5rem !important;
 }
