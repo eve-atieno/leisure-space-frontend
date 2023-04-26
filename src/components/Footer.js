@@ -23,8 +23,7 @@ function Footer() {
               </h2>
   
               <p class="mt-4 text-white">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
-                cupiditate quae nam molestias.
+                Is a website that allows people to book and fulfil emotional needs 
               </p>
             </div>
           </div>
@@ -76,7 +75,7 @@ function Footer() {
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" class="text-white transition hover:opacity-105">
                     HR Consulting
                   </a>
                 </li>
