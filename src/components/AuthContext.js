@@ -11,7 +11,7 @@ export default function AuthProvider({ children }) {
 
   // login
   const login = (email, password) => {
-    fetch("http://127.0.0.1:3000/login", {
+    fetch("http://127.0.0.1:4000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ export default function AuthProvider({ children }) {
 
   // Register
   const register = (name, email, password,confirmPassword) => {
-    fetch("http://127.0.0.1:3000/users", {
+    fetch("http://127.0.0.1:4000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -123,7 +123,7 @@ export default function AuthProvider({ children }) {
 
   // check if user is logged in
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/loggedin", {
+    fetch("http://127.0.0.1:4000/loggedin", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

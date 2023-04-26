@@ -9,7 +9,7 @@ function Footer() {
 
     <div className="footers">
   
-  <footer aria-label="Site Footer" class="bg-slate-900">
+  <footer aria-label="Site Footer" class="bg-slate-900 ">
     <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="lg:flex lg:items-start lg:gap-8">
 
