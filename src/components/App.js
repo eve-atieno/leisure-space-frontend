@@ -15,6 +15,14 @@ import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
 import Invoice from "./Invoice/Invoice";
 
+function ReviewsContainer({ spaces, reviews, onReviewSelect, onAddReview }) {
+  return (
+    <>
+      {/* <ReviewList reviews={reviews} onReviewSelect={onReviewSelect} /> */}
+      <AddReviewForm reviews={reviews} spaces={spaces} onAddReview={onAddReview} />
+    </>
+  );
+}
 
 function App() {
   
@@ -36,7 +44,7 @@ function App() {
   const [spaces, setSpaces] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:4000/spaces')
+    fetch('http://127.0.0.1:3000/spaces')
       .then((res) => res.json())
       .then((data) => {
         setSpaces(data);
@@ -46,7 +54,7 @@ function App() {
 
   
   useEffect(() => {
-    fetch('http://127.0.0.1:4000/reviews')
+    fetch('http://127.0.0.1:3000/reviews')
       .then((res) => res.json())
       .then((data) => {
         setReviews(Array.isArray(data) ? data : [])
@@ -67,42 +75,34 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-      <NavBar/>
-      <Routes>
-        <Route path="/" element={<Home/>} />
-         <Route path="/booking/:id" element={<BookingPage
-        spaces={spaces}
-        />} />
-        
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/spaces" element={<Spaces 
-        spaces={spaces}
-        setSpaces={setSpaces}/>} />
-     
-        <Route path="/reserve" element={<Reserve />} />
-  
-        <Route path="/addspace" element={<AddSpace />} />
-        <Route path="/createadmin" element={<CreateAdmin />} />
-        <Route path="/invoice" element={<Invoice />} />
-        
-
-
-
-         {/* <div className="flex flex-row justify-evenly"> 
-     <ReviewList 
-       reviews={reviews} 
-       onReviewSelect={handleReviewSelect} />
-
-      <AddReviewForm 
-      onAddReview={handleAddReview} />
-      {selectedReview && <ReviewDetails review={selectedReview} />}
-      </div> */}
-        
-      </Routes>
-      <Footer/>
-    </AuthProvider>
-      </BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={[<Home />]} />
+          <Route
+            path="/booking/:id"
+            element={[
+              <BookingPage spaces={spaces} />,
+              <ReviewsContainer
+                spaces={spaces}
+                reviews={reviews}
+                onReviewSelect={handleReviewSelect}
+                onAddReview={handleAddReview}
+              />,
+            ]}
+          />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/spaces"
+            element={<Spaces spaces={spaces} setSpaces={setSpaces} />}
+          />
+          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/addspace" element={<AddSpace />} />
+          <Route path="/createadmin" element={<CreateAdmin />} />
+        </Routes>
+        <Footer />
+      </AuthProvider>
+    </BrowserRouter>
       
 
   );
