@@ -12,13 +12,11 @@ import Profile from '../assets/Images/Profile.png'
 
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
   const user = JSON.parse(sessionStorage.getItem("user"));
-  console.log("user", user);
 
   const triggerLogout = () => {
     logout();
   };
 
-  console.log ("user", user)
 
 
   return (   

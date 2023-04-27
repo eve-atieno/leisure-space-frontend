@@ -99,6 +99,7 @@ function App() {
           <Route path="/reserve" element={<Reserve />} />
           <Route path="/addspace" element={<AddSpace />} />
           <Route path="/createadmin" element={<CreateAdmin />} />
+          <Route path="/invoice" element={<Invoice />} />
         </Routes>
         <Footer />
       </AuthProvider>

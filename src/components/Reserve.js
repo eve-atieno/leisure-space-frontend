@@ -108,10 +108,12 @@ function Reserve() {
             </div>
             <hr />
             <div className="text-center">
+              <Link to="/invoice">
               <button className="bg-orange-400 text-white font-bold py-2 px-4 rounded-full">
-                {" "}
+            
                 Pay Now
               </button>
+              </Link>
             </div>
           </div>
         </div>
