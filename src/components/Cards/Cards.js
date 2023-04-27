@@ -11,19 +11,14 @@ function Card({ spaces, setSpace }) {
   return (
     <div className="card-container">
       <Link to={`/booking/${spaces.id}`}>
-        <div
-          className="card-box"
-          onClick={() => {
-            //move to the next page
-          }}
-        >
+        <div className="card-box text-black">
           <img
             className="card-img"
             src={spaces.media[1].image_url}
             alt="space"
           />
 
-          <div className="card-info-flex">
+          <div className="card-info-flex mt-1">
             <h4 className="name">{spaces.name}</h4>
           </div>
           <p
@@ -46,7 +41,7 @@ function Card({ spaces, setSpace }) {
               color: "var(--font-black)",
             }}
           >
-            <span style={{ fontWeight: "600" }}>$ {spaces.price}</span> night
+            <span style={{ fontWeight: "600" }}>Ksh{spaces.price}</span> night
           </p>
         </div>
       </Link>

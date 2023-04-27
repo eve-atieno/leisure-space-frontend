@@ -13,7 +13,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.card-container a {
+  text-decoration: none;
+}
 .card-container{
   margin: 15px auto;
   display: flex;
