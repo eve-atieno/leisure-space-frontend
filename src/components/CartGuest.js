@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Cart({ cart, onRemoveFromCart, isLoggedIn }) {
+export default function Cart({ cart, onRemoveFromCart, isLoggedIn }) {
     const total = cart.reduce((total, hotel) => total + parseFloat(hotel.price), 0);
 
     function handleRemove(hotel) {
@@ -34,4 +34,4 @@ function Cart({ cart, onRemoveFromCart, isLoggedIn }) {
     );
 }
 
-export default Cart;
+
