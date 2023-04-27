@@ -17,30 +17,33 @@ import CreateAdmin from "../admin/CreateAdmin";
 
 
 
-function ReviewsContainer({ reviews, onReviewSelect, onAddReview }) {
+function ReviewsContainer({ spaces, reviews, onReviewSelect, onAddReview }) {
   return (
     <>
-      <ReviewList reviews={reviews} onReviewSelect={onReviewSelect} />
-      <AddReviewForm onAddReview={onAddReview} />
+      {/* <ReviewList reviews={reviews} onReviewSelect={onReviewSelect} /> */}
+      <AddReviewForm reviews={reviews} spaces={spaces} onAddReview={onAddReview} />
     </>
   );
 }
 
 function App() {
+  
+    const [reviews, setReviews] = useState([
+      { id: 1, name: 'John Doe', rating: 4, text: 'Great product!' },
+      { id: 2, name: 'Jane Doe', rating: 5, text: 'I loved it!' },
+    ]);
+  
+  
+    const handleAddReview = (newReview) => {
+      setReviews([...reviews, { id: Date.now(), ...newReview }]);
+    };
+    const handleReviewSelect = (review) => {
+      // setSelectedReview(review);
+
+
+    };
+
   const [spaces, setSpaces] = useState([]);
-  const [reviews, setReviews] = useState([
-    { id: 1, name: 'John Doe', rating: 4, text: 'This place is stunning!. Every detail of this place is well done. I enjoyed my time over there so much. ' },
-    { id: 2, name: 'Jane Doe', rating: 5, text: 'Beautiful location. Wonderful break from daily life and the city.' },
-  ]);
-  const [selectedReview, setSelectedReview] = useState(null);
-
-  const handleAddReview = (newReview) => {
-    setReviews([...reviews, { id: Date.now(), ...newReview }]);
-  };
-
-  const handleReviewSelect = (review) => {
-    setSelectedReview(review);
-  };
 
   useEffect(() => {
     fetch('http://127.0.0.1:4000/spaces')
@@ -49,6 +52,27 @@ function App() {
         setSpaces(data);
       });
   }, []);
+
+
+  
+  useEffect(() => {
+    fetch('http://127.0.0.1:4000/reviews')
+      .then((res) => res.json())
+      .then((data) => {
+        setReviews(Array.isArray(data) ? data : [])
+
+      })
+      .catch((error) =>{
+        console.log(error)
+      })
+  }, []);
+
+  console.log(reviews)
+
+  // function AddReview
+
+
+  
 
   return (
     <BrowserRouter>
@@ -61,6 +85,7 @@ function App() {
             element={[
               <BookingPage spaces={spaces} />,
               <ReviewsContainer
+                spaces={spaces}
                 reviews={reviews}
                 onReviewSelect={handleReviewSelect}
                 onAddReview={handleAddReview}

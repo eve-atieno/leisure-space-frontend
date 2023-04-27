@@ -6,9 +6,12 @@ import { useContext } from 'react'
 import { AuthContext } from './AuthContext'
 
  const NavBar = () => {
+
   const { logout } = useContext(AuthContext);
 
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+  const user = JSON.parse(sessionStorage.getItem("user"));
+  console.log("user", user);
 
   const triggerLogout = () => {
     logout();

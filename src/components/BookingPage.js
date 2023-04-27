@@ -40,7 +40,7 @@ console.log(spaces)
     const basePrice = 800
     const additionalPricePerDay = 120
     const pricePerGuest = 150
-    const total = basePrice + (additionalPricePerDay * diffDays * guest* pricePerGuest)
+    const total = basePrice + (additionalPricePerDay * diffDays * pricePerGuest)
     
     setTotalPrice(total)
   }
