@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 function Card({ spaces, setSpace }) {
   const navigate = useNavigate();
 
-  console.log(spaces);
   return (
     <div className="card-container">
       <Link to={`/booking/${spaces.id}`}>

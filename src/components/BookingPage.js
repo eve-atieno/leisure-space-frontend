@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { BiCurrentLocation } from "react-icons/bi";
 import { IoMdWifi } from "react-icons/io";
 import { Link } from "react-router-dom";
-// import { useContext } from 'react'
-// import { AuthContext } from './AuthContext'
-import { useParams } from 'react-router-dom';
 
+import { useParams } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 function BookingPage({spaces}) {
+  const navigate = useNavigate();
+
   const {id} = useParams();
-console.log(id);
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
-console.log(spaces)
   const [checkInTime, setCheckInTime] = useState("");
   const [checkOutTime, setCheckOutTime] = useState("");
   const [totalPrice , setTotalPrice]=useState(0)
@@ -46,27 +46,56 @@ console.log(spaces)
   }
 
 
-  // const handleCheckIn = () => {
-  //   const currentTime = new Date().toLocaleString();
-  //   setCheckInTime(currentTime);
-  // };
-  // const handleCheckOut = () => {
-  //   const currentTime = new Date().toLocaleString();
-  //   setCheckOutTime(currentTime);
-  // };
-  // const checkInDate = new Date(checkInTime)
-  // const checkOutDate = new Date(currentTime)
-  // const timeDiff = Math.abs(checkOutDate.getTime() - checkInDate.getTime())
-  // const diffDays = Math.ceil(timeDiff /(1000 * 3600 * 24))
-  // // let totalPrice = diffDays * 1500
-  // setTotalPrice(totalPrice )
+
   const space = spaces.find((space) => space.id === parseInt(id));
   //image
   const image = space.media[1].image_url;
-  console.log(image);
+
+
   //price
   const price = space.price;
-  console.log(price);
+  console.log(space.id + "space id")
+
+  // post a booking
+const submitBooking = (e) => {
+  e.preventDefault()
+  const booking = {
+    start_date: checkInTime,
+    end_date: checkOutTime,
+    profile_id: 1,
+    space_id: space.id,
+  }
+  fetch('http://127.0.0.1:3000/bookings', {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(booking)
+  })
+  .then((res) => res.json())
+      .then((response) => {
+        if (response.error) {
+          // console.log(response.error)
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: response.error,
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
+        } else {
+         
+          Swal.fire({
+            icon: "success",
+            title: "Reserve successful!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/reserve");
+        }
+      });
+}
+
+
+
+
 
 
   return (
@@ -206,14 +235,11 @@ console.log(spaces)
               </div>
             </div>
 
-            <form className="mt-10">
-              {totalPrice > 0 &&(
-                <div>
-                  <p>Total Price: ksh{totalPrice}</p>
-                  <p>Time: {currentTime.toDateString()}</p>
-                </div>
-              )}
-              
+            <form 
+            onSubmit={submitBooking}
+            className="mt-10">
+
+        
               <label htmlFor="checkIn">Check-in date and time:</label>
               <input
                 type="datetime-local"
@@ -238,10 +264,30 @@ console.log(spaces)
                 id="numberof guest"
                 
               />
-              
+
+{isLoggedIn ? (
+       
+            <button
+              type="submit"
+              className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
+              RESERVE
+            </button>
+        
+         ) : (
+              <Link to="/login">
+                <button
+                   type="button"
+                  className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-orange-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                >
+                  LOGIN TO RESERVE
+                 </button>
+                </Link>
+             )
+            }
             </form>
-            {/* <p>Check-in time: {checkInTime}</p>
-            <p>Check-out time: {checkOutTime}</p> */}
+            
+{/*          
             {isLoggedIn ? (
          <Link to="/reserve">
             <button
@@ -260,7 +306,7 @@ console.log(spaces)
                   LOGIN TO RESERVE
                 </button>
               </Link>
-            )}
+            )} */}
           </div>
         </div>
 
