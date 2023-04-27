@@ -48,6 +48,7 @@ const AddReviewForm = ({spaces, reviews}) => {
 <div className="flex flex-col">
 {reviews.map((review) => (
   <div key={review.id}>
+    <p>name:{review.name}</p>
     <p>Rating: {review.rating}</p>
     <p>Comment:{review.comment}</p>
   </div>
