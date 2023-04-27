@@ -1,66 +1,50 @@
 import {useContext, useState} from 'react'
-import { useNavigate } from "react-router-dom";
+import {AuthContext} from './AuthContext'
 
-function Login ({ setUser }){
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [errors, setErrors] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-    let navigator = useNavigate();
+function Login (){
 
-    function handleSubmit(e) {
-      e.preventDefault();
-      setIsLoading(true);
-      fetch("http://localhost:4000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      }).then((r) => {
-        setIsLoading(false);
-        if (r.ok) {
-          r.json().then((user) => {
-            setUser(user)
-            sessionStorage.setItem('user', user)
-          });
-          navigator("/")
-        } else {
-          r.json().then((err) => setErrors(err.errors));
-        }
-      });
-    } 
-
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const {login} = useContext(AuthContext)
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    login(email, password)
+}
     return (
 
-        <div className="container">
+//         <div className="container">
             
 
-            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleFormSubmit}>
-                <h1>Login</h1>
-                <label htmlFor="username">Email</label>
-                <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="text"
-                    id="username"
-                    autoComplete="off"
-                    value={username}
-                    placeholder="Enter Email"
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <label htmlFor="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
-                    value={password}
-                    placeholder="Enter password"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
-            </form>
-        </div>
-    );
+//             <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" 
+//             // onSubmit={handleFormSubmit}
+//             >
+//                 <h1>Login</h1>
+//                 <label htmlFor="username">Email</label>
+//                 <input
+//                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+//                     type="text"
+//                     id="username"
+//                     autoComplete="off"
+//                     // value={username}
+//                     placeholder="Enter Email"
+//                     // onChange={(e) => setUsername(e.target.value)}
+//                 />
+//                 <label htmlFor="password">Password</label>
+//                 <input
+//                     type="password"
+//                     id="password"
+//                     autoComplete="current-password"
+//                     value={password}
+//                     placeholder="Enter password"
+//                     onChange={(e) => setPassword(e.target.value)}
+//                 />
+//                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
+//             </form>
+//         </div>
+//     );
+// }
+
+// export default Login;
 
         <>
         <div className="flex flex-col items-center justify-center h-screen w-screen bg-gray-100">
@@ -105,12 +89,17 @@ function Login ({ setUser }){
           <button className="bg-orange-600 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded-full mt-4">
             Log In
           </button>
+          <div className="flex flex-col items-center justify-center mt-4">
+            <p className="text-white text-lg">Don't have an account?</p>
+            <a href="/signup" className="text-orange-600 text-lg">
+              sign up
+            </a>
+          </div>
         </form>
       </div>
     </div>
         </>
     )
-
 }
 
-export default Login;
+export default Login

@@ -12,10 +12,14 @@ footer, .nx{
 }
 
 
-} */
-/* footer{
+
+footer{
     height: 100%;
     background: rgb(5, 5, 40);
     color: #fff;
 } */
 
+
+.space-y-4{
+    margin-left: -30px;
+}
