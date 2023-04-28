@@ -92,41 +92,13 @@ export default function AuthProvider({ children }) {
       });
   };
 
-  // Logout
-  // const logout = () => {
-  //   fetch("https://epic-hcpr.onrender.com/logout", {
-  //     method: "DELETE",
-  //   })
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       //
-  //       console.log(response);
-  //       setOnChange(!change);
-
-  //       setUser();
-
-  //       navigate("/login");
-  //     });
-  // };
+  
+ 
   const logout = () => {
     sessionStorage.clear();
     navigate("/login");
   };
 
-  // check if user is logged in
-  // useEffect(() => {
-  //   fetch("http://127.0.0.1:3000/loggedin", {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((response) => {
-  //       // console.log(response)
-  //       setUser(response);
-  //     });
-  // }, [change]);
 
   const contextData = {
     user,
