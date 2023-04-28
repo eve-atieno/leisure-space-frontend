@@ -7,7 +7,7 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { Update } from "@mui/icons-material";
 
-function Reserve({spaces, setSpaces }) {
+function Reserve() {
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -21,12 +21,7 @@ function Reserve({spaces, setSpaces }) {
     key: "selection",
   };
 
-  const handleOnclick = () => {
-    // submit the data of the calendar
-    console.log("start date", startDate);
-    console.log("end date", endDate);
-  };
-
+ 
   const [visibility, setVisibility] = useState(false);
   const popupCloseHandler = () => {
     setVisibility(false);
@@ -35,7 +30,7 @@ function Reserve({spaces, setSpaces }) {
   const [bookings, setBookings] = useState([]);
   const [lastBooking, setLastBooking] = useState('');
 
- //get the bookings from the database
+  //get the bookings from the database
   useEffect(() => {
     fetch("http://localhost:3000/bookings")
       .then((res) => res.json())
@@ -52,7 +47,7 @@ function Reserve({spaces, setSpaces }) {
   }, [bookings]);
 
 
-//get the dates of the booking both the start and end date
+  //get the dates of the booking both the start and end date
   const [bookingDates, setBookingDates] = useState([]); 
   useEffect(() => {
     if (lastBooking) {
@@ -83,32 +78,6 @@ function Reserve({spaces, setSpaces }) {
     }
   }, [numberOfDays]);
 
-  // edit dates of the last booking in the database only
-  const handleEdit = () => {
-    fetch(`http://localhost:3000/bookings/${lastBooking.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        start_date: startDate,
-        end_date: endDate,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-       console.log (data)
-      });
-  };
-
-
-
-
-
-
-
-
-
   return (
     <>
       <CustomPopup onClose={popupCloseHandler} show={visibility} title="">
@@ -124,7 +93,6 @@ function Reserve({spaces, setSpaces }) {
               <button
                 onClick={() => {
                   
-                  handleEdit();
                 }}
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               >
