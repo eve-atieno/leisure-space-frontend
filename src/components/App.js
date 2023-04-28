@@ -10,7 +10,7 @@ import Home from "./Home";
 import Footer from "./Footer";
 import Spaces from "./Spaces/Spaces";
 import Reserve from "./Reserve";
-import AuthProvider  from "./AuthContext";
+import AuthProvider from "./AuthContext";
 import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
 import Invoice from "./Invoice/Invoice";
@@ -19,27 +19,27 @@ function ReviewsContainer({ spaces, reviews, onReviewSelect, onAddReview }) {
   return (
     <>
       {/* <ReviewList reviews={reviews} onReviewSelect={onReviewSelect} /> */}
-      <AddReviewForm reviews={reviews} spaces={spaces} onAddReview={onAddReview} />
+      <AddReviewForm
+        reviews={reviews}
+        spaces={spaces}
+        onAddReview={onAddReview}
+      />
     </>
   );
 }
 
 function App() {
-  
-    const [reviews, setReviews] = useState([
-      { id: 1, name: 'John Doe', rating: 4, text: 'Great product!' },
-      { id: 2, name: 'Jane Doe', rating: 5, text: 'I loved it!' },
-    ]);
-  
-  
-    const handleAddReview = (newReview) => {
-      setReviews([...reviews, { id: Date.now(), ...newReview }]);
-    };
-    const handleReviewSelect = (review) => {
-      // setSelectedReview(review);
+  const [reviews, setReviews] = useState([
+    { id: 1, name: "John Doe", rating: 4, text: "Great product!" },
+    { id: 2, name: "Jane Doe", rating: 5, text: "I loved it!" },
+  ]);
 
-
-    };
+  const handleAddReview = (newReview) => {
+    setReviews([...reviews, { id: Date.now(), ...newReview }]);
+  };
+  const handleReviewSelect = (review) => {
+    // setSelectedReview(review);
+  };
 
   const [spaces, setSpaces] = useState([]);
 
@@ -51,26 +51,20 @@ function App() {
       });
   }, []);
 
-
-  
   useEffect(() => {
     fetch('http://127.0.0.1:4000/reviews')
       .then((res) => res.json())
       .then((data) => {
-        setReviews(Array.isArray(data) ? data : [])
-
+        setReviews(Array.isArray(data) ? data : []);
       })
-      .catch((error) =>{
-        console.log(error)
-      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
-  console.log(reviews)
+  console.log(reviews);
 
   // function AddReview
-
-
-  
 
   return (
     <BrowserRouter>
@@ -96,15 +90,16 @@ function App() {
             path="/spaces"
             element={<Spaces spaces={spaces} setSpaces={setSpaces} />}
           />
-          <Route path="/reserve" element={<Reserve />} />
+          <Route path="/reserve/:id" element={<Reserve
+            spaces={spaces}
+           />} />
           <Route path="/addspace" element={<AddSpace />} />
           <Route path="/createadmin" element={<CreateAdmin />} />
+          <Route path="/invoice" element={<Invoice />} />
         </Routes>
         <Footer />
       </AuthProvider>
     </BrowserRouter>
-      
-
   );
 }
 

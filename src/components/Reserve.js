@@ -1,120 +1,139 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link , useParams} from "react-router-dom";
+import { useState , useEffect} from "react";
 import CustomPopup from "./custom-popup";
-import { DateRangePicker } from 'react-date-range';
-import 'react-date-range/dist/styles.css'; // main style file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRangePicker } from "react-date-range";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
-function Reserve() {
-   
+function Reserve({spaces, setSpaces}) {
+
   const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
-    const handleSelect = (ranges) => {
-      setStartDate(ranges.selection.startDate);
-      setEndDate(ranges.selection.endDate);
-    };
-    const selectionRange = {
-      startDate,
-      endDate,
-      key: 'selection',
-    };
+  const [endDate, setEndDate] = useState(new Date());
+  const handleSelect = (ranges) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
+  };
+  const selectionRange = {
+    startDate,
+    endDate,
+    key: "selection",
+  };
 
-    const handleOnclick = () => {
-      // submit the data of the calendar
-      console.log("start date", startDate);
-      console.log("end date", endDate);
-
-    };
-
+  const handleOnclick = () => {
+    // submit the data of the calendar
+    console.log("start date", startDate);
+    console.log("end date", endDate);
+  };
 
   const [visibility, setVisibility] = useState(false);
   const popupCloseHandler = () => {
     setVisibility(false);
   };
 
+  
+  const { id } = useParams();
+  const [booking, setBooking] = useState([]);
+  useEffect(() => {
+    fetch(`http://127.0.0.1:3000/bookings`)
+      .then((res) => res.json())
+      .then((data) => {
+        setBooking(Array.isArray(data) ? data : []);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  console.log('booking', booking);
+
+  //console log the booking that has been posted last by the user
+  const lastBooking = booking[booking.length - 1];
+  console.log('lastBooking', lastBooking);
+
   return (
     <>
- <CustomPopup
-   onClose = {popupCloseHandler}
-    show = {visibility}
-    title = ""
-  >
-    <div className="flex flex-col justify-center items-center">
-      <div>
-    <DateRangePicker
-        ranges={[selectionRange]}
-        onChange={handleSelect}
-      />
-    </div>
-    <button  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-    onClick={handleOnclick}>Ok</button>
-
-      </div>
+      <CustomPopup onClose={popupCloseHandler} show={visibility} title="">
+        <div className="flex flex-col justify-center items-center">
+          <div>
+            <DateRangePicker
+              ranges={[selectionRange]}
+              onChange={handleSelect}
+            />
+          </div>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleOnclick}
+          >
+            Ok
+          </button>
+        </div>
       </CustomPopup>
 
-
-    <div className="flex flex-row m-4 justify-evenly">
-      <div className="">
-        <div className="flex flex-row mt-3 ml-3">
-          <Link to="/booking">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-12 h-12"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-              />
-            </svg>
-          </Link>
-          <div>
-            <h1>Confirm Your Payment</h1>
+      <div className="flex flex-row m-4 justify-evenly">
+        <div className="">
+          <div className="flex flex-row mt-3 ml-3">
+           <Link to= '/spaces'>     
+                    <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-12 h-12"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                />
+              </svg>
+            </Link>
+            <div>
+              <h1>Confirm Your Payment</h1>
+            </div>
           </div>
-        </div>
 
-        <div className="m-9">
-          <div>
-            <h1 className="text-2xl font-bold">Your Trip</h1>
-          </div>
-          <div className="flex flex-row justify-between">
-            <h1 className="text-xl font-bold">Dates</h1>
-            <p className="font-semi-bold text-2xl
+          <div className="m-9">
+            <div>
+              <h1 className="text-2xl font-bold">Your Trip</h1>
+            </div>
+            <div className="flex flex-row justify-between">
+              <h1 className="text-xl font-bold">Dates</h1>
+              <p
+                className="font-semi-bold text-2xl
             cursor-pointer hover:text-orange-400
             underline text-blue-500
-             " onClick={() => setVisibility(true)}
-            >
-              Edit
-            </p>
-          </div>
-          <div>
-            <p>May 12-May 20</p>
-          </div>
-
-          <div className="flex flex-row justify-between">
-            <h1 className="text-xl font-bold">Guests</h1>
-            <p className="font-semi-bold text-2xl">
-              <a href="">Edit</a> 
+             "
+                onClick={() => setVisibility(true)}
+              >
+                Edit
               </p>
-          </div>
-          <div>
+            </div>
             <div>
-              <p>3 Guests, 2 infants</p>
+              <p>May 12-May 20</p>
             </div>
-            <hr />
-            <div className="text-center">
-              <button className="bg-orange-400 text-white font-bold py-2 px-4 rounded-full">
-                {" "}
-                Pay Now
-              </button>
+
+            <div className="flex flex-row justify-between">
+              <h1 className="text-xl font-bold">Guests</h1>
+              <p className="font-semi-bold text-2xl">
+                <a href="">Edit</a>
+              </p>
+            </div>
+            <div>
+              <div>
+                <p>3 Guests, 2 infants</p>
+              </div>
+              <hr />
+              <div className="text-center">
+                <Link to="/invoice">
+                  <button className="bg-orange-400 text-white font-bold py-2 px-4 rounded-full">
+                    Pay Now
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
         </div>
         <div className="max-w-lg p-6 pr-5 mx-4 my-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <div className="flex flex-row ">
@@ -156,7 +175,7 @@ function Reserve() {
           </div>
         </div>
       </div>
-   </>
+    </>
   );
 }
 

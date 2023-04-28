@@ -1,21 +1,25 @@
-import React from 'react';
-import 'tailwindcss/tailwind.css';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
-import logo from '../../assets/Images/navbar.png';
+import React from "react";
+import "tailwindcss/tailwind.css";
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
+import logo from "../../assets/Images/navbar.png";
 
 const Invoice = () => {
   const generatePDF = () => {
-    const input = document.getElementById('invoice');
-    html2canvas(input, { dpi: 300 }).then((canvas) => {      const pdf = new jsPDF('p', 'pt', 'a4');
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 595, 842);
-      pdf.save('invoice.pdf');
+    const input = document.getElementById("invoice");
+    html2canvas(input, { dpi: 300 }).then((canvas) => {
+      const pdf = new jsPDF("p", "pt", "a4");
+      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 595, 842);
+      pdf.save("invoice.pdf");
     });
   };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen w-screen bg-gray-100">
-      <div id="invoice" className="bg-white w-96 h-max shadow-md rounded my-6 p-8">
+      <div
+        id="invoice"
+        className="bg-white w-96 h-max shadow-md rounded my-6 p-8"
+      >
         <div className="flex justify-between mb-4">
           <img src={logo} alt="logo" className="h-16" />
           <div className="flex flex-col">
@@ -42,7 +46,10 @@ const Invoice = () => {
           <p>$220.00</p>
         </div>
       </div>
-      <button className="bg-orange-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={generatePDF}>
+      <button
+        className="bg-orange-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={generatePDF}
+      >
         Download PDF
       </button>
     </div>

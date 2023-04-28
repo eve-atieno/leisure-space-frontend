@@ -134,7 +134,6 @@ export default function AuthProvider({ children }) {
     register,
     logout,
   };
-console.log(user)
 // fetch user
   useEffect(() => {
     fetch("", {
