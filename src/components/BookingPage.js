@@ -14,7 +14,7 @@ function BookingPage({ spaces }) {
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
   const [checkInTime, setCheckInTime] = useState("");
   const [checkOutTime, setCheckOutTime] = useState("");
-  const [totalPrice, setTotalPrice] = useState(0);
+  // const [totalPrice, setTotalPrice] = useState(0);
 
   const currentTime = new Date();
 
@@ -26,23 +26,8 @@ function BookingPage({ spaces }) {
     setCheckOutTime(event.target.value);
   }
 
-  function calculateTotalPrice() {
-    const checkInDate = new Date(checkInTime);
-    const checkOutDate = new Date(checkOutTime);
+  // function calculateTotalPrice() {
 
-    if (checkInDate > checkOutDate) {
-      alert("Check-out time must be after check-in time");
-    }
-    const timeDiff = checkOutDate.getTime() - checkInDate.getTime();
-    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-    const basePrice = 800;
-    const additionalPricePerDay = 120;
-    const pricePerGuest = 150;
-    const total = basePrice + additionalPricePerDay * diffDays * pricePerGuest;
-
-    setTotalPrice(total);
-  }
 
   const space = spaces.find((space) => space.id === parseInt(id));
   //image
@@ -84,7 +69,7 @@ function BookingPage({ spaces }) {
             position: "top",
             timer: 1500,
           });
-          navigate(`/reserve/${booking.id}`);
+          navigate("/reserve");
           
         }
       });
@@ -311,7 +296,7 @@ function BookingPage({ spaces }) {
             />
             <button
               type="button"
-              onClick={calculateTotalPrice}
+              // onClick={calculateTotalPrice}
               className="block mb-4 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
             >
               Calculate Total Price

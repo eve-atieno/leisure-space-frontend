@@ -18,9 +18,9 @@ const AddReviewForm = ({ spaces, reviews }) => {
 
   //show the user id that is equal to users id
   const user_id = users.filter((user) => user.id === user.id);
-  console.log("user_id", user_id);
+  // console.log("user_id", user_id);
 
-  console.log("user", user_id.profile_id);
+  // console.log("user", user_id.profile_id);
 
   // post a review
   // const [name, setName] = useState('')
