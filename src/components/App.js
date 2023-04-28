@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BookingPage from "./BookingPage";
 import AddReviewForm from "./AddReviewForm";
-import ReviewList from "./ReviewList";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import SignUp from "./SignUp";
 import Login from "./Login";
@@ -15,7 +14,7 @@ import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
 import Invoice from "./Invoice/Invoice";
 
-function ReviewsContainer({ spaces, reviews, onReviewSelect, onAddReview }) {
+function ReviewsContainer({ spaces, reviews, onAddReview }) {
   return (
     <>
       {/* <ReviewList reviews={reviews} onReviewSelect={onReviewSelect} /> */}
@@ -30,8 +29,8 @@ function ReviewsContainer({ spaces, reviews, onReviewSelect, onAddReview }) {
 
 function App() {
   const [reviews, setReviews] = useState([
-    { id: 1, name: "John Doe", rating: 4, text: "Great product!" },
-    { id: 2, name: "Jane Doe", rating: 5, text: "I loved it!" },
+    // { id: 1, name: "John Doe", rating: 4, text: "Great product!" },
+    // { id: 2, name: "Jane Doe", rating: 5, text: "I loved it!" },
   ]);
 
   const handleAddReview = (newReview) => {
@@ -62,7 +61,6 @@ function App() {
       });
   }, []);
 
-  console.log(reviews);
 
   // function AddReview
 
@@ -90,7 +88,7 @@ function App() {
             path="/spaces"
             element={<Spaces spaces={spaces} setSpaces={setSpaces} />}
           />
-          <Route path="/reserve/:id" element={<Reserve
+          <Route path="/reserve" element={<Reserve
             spaces={spaces}
            />} />
           <Route path="/addspace" element={<AddSpace />} />
