@@ -5,8 +5,9 @@ import CustomPopup from "./custom-popup";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import { Update } from "@mui/icons-material";
 
-function Reserve({spaces, setSpaces}) {
+function Reserve({spaces, setSpaces }) {
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -31,42 +32,106 @@ function Reserve({spaces, setSpaces}) {
     setVisibility(false);
   };
 
-  
-  const { id } = useParams();
-  const [booking, setBooking] = useState([]);
+  const [bookings, setBookings] = useState([]);
+  const [lastBooking, setLastBooking] = useState('');
+
+ //get the bookings from the database
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/bookings`)
+    fetch("http://localhost:3000/bookings")
       .then((res) => res.json())
       .then((data) => {
-        setBooking(Array.isArray(data) ? data : []);
-      })
-      .catch((error) => {
-        console.log(error);
+        setBookings(data);
       });
   }, []);
 
-  console.log('booking', booking);
+  //get the last booking from the database
+  useEffect(() => {
+    if (bookings.length > 0) {
+      setLastBooking(bookings[bookings.length - 1]);
+    }
+  }, [bookings]);
 
-  //console log the booking that has been posted last by the user
-  const lastBooking = booking[booking.length - 1];
-  console.log('lastBooking', lastBooking);
+
+//get the dates of the booking both the start and end date
+  const [bookingDates, setBookingDates] = useState([]); 
+  useEffect(() => {
+    if (lastBooking) {
+      setBookingDates([
+        lastBooking.start_date,
+        lastBooking.end_date,
+      ]);
+    }
+  }, [lastBooking]);
+
+  // subtract the dates of the booking to get the number of days
+  const [numberOfDays, setNumberOfDays] = useState(0);
+  useEffect(() => {
+    if (bookingDates.length > 0) {
+      const date1 = new Date(bookingDates[0]);
+      const date2 = new Date(bookingDates[1]);
+      const diffTime = Math.abs(date2 - date1);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      setNumberOfDays(diffDays);
+    }
+  }, [bookingDates]);
+
+  // get the price of the space multiplied by the number of days
+  const [totalPrice, setTotalPrice] = useState(0);
+  useEffect(() => {
+    if (numberOfDays > 0) {
+      setTotalPrice(numberOfDays * lastBooking.space.price);
+    }
+  }, [numberOfDays]);
+
+  // edit dates of the last booking in the database only
+  const handleEdit = () => {
+    fetch(`http://localhost:3000/bookings/${lastBooking.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        start_date: startDate,
+        end_date: endDate,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+       console.log (data)
+      });
+  };
+
+
+
+
+
+
+
+
 
   return (
     <>
       <CustomPopup onClose={popupCloseHandler} show={visibility} title="">
         <div className="flex flex-col justify-center items-center">
           <div>
+            {/* with date range i should edit the dates */}
             <DateRangePicker
               ranges={[selectionRange]}
               onChange={handleSelect}
             />
+
+            <div className="flex flex-row justify-center items-center">
+              <button
+                onClick={() => {
+                  
+                  handleEdit();
+                }}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              >
+                Edit
+              </button>
+            </div>
           </div>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handleOnclick}
-          >
-            Ok
-          </button>
         </div>
       </CustomPopup>
 
@@ -110,8 +175,10 @@ function Reserve({spaces, setSpaces}) {
                 Edit
               </p>
             </div>
-            <div>
-              <p>May 12-May 20</p>
+            <div className="flex flex-row justify-around">
+              <p>{startDate.toDateString()}</p>
+              <p>-</p>
+              <p>{endDate.toDateString()}</p>
             </div>
 
             <div className="flex flex-row justify-between">
@@ -136,43 +203,46 @@ function Reserve({spaces, setSpaces}) {
           </div>
         </div>
         <div className="max-w-lg p-6 pr-5 mx-4 my-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <div className="flex flex-row ">
-            <div>
-              <img
-                className="object-cover w-40 h-40 rounded"
-                src="https://a0.muscache.com/im/pictures/94939489/6e77d654_original.jpg?im_w=1440"
-                alt="avatar"
-              />
-            </div>
-            <div className="flex flex-col ml-4">
-              <div>
-                <h3> The Villa</h3>
-              </div>
-              <div>
-                <h5> 3 Bedrooms</h5>
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div>
-            <p className="text-xl">
-              Your Booking Is Secure by
-              <span className="font-bold text-orange-400">LeisureSpace</span>
-            </p>
-          </div>
-          <hr />
-          <div>
-            <h5 className="font-bold">Price Details</h5>
-          </div>
-          <div className="flex flex-row justify-between">
-            <h5>ksh 3000/per night*7</h5>
-            <h5>ksh 21000</h5>
-          </div>
-          <hr />
-          <div className="flex flex-row justify-between">
-            <h5 className="font-bold">Total</h5>
-            <h5>ksh 21000</h5>
-          </div>
+        {lastBooking ? (
+  <div>
+    <div className="flex flex-row ">
+      <div>
+        <img
+          className="object-cover w-40 h-40 rounded"
+          src={lastBooking.space.media[0].image_url}
+          alt="avatar"
+        />
+      </div>
+      <div className="flex flex-col ml-4 mt-12">
+        <div>
+          <h3>{lastBooking.space.name}</h3>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div>
+      <p className="text-xl">
+        Your Booking Is Secure by{" "}
+        <span className="font-bold text-orange-400">LeisureSpace</span>
+      </p>
+    </div>
+    <hr />
+    <div>
+      <h5 className="font-bold">Price Details</h5>
+    </div>
+    <div className="flex flex-row justify-between">
+      <h5>ksh {lastBooking.space.price} per night x {numberOfDays}</h5>
+      <h5>ksh {totalPrice}</h5>
+    </div>
+    <hr />
+    <div className="flex flex-row justify-between">
+      <h5 className="font-bold">Total</h5>
+      <h5>ksh {totalPrice}</h5>
+    </div>
+  </div>
+) : (
+  <p>Loading...</p>
+)}
         </div>
       </div>
     </>
@@ -180,3 +250,4 @@ function Reserve({spaces, setSpaces}) {
 }
 
 export default Reserve;
+
