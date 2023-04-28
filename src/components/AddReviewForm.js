@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-
+import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from './AuthContext';
 
 const AddReviewForm = ({spaces, reviews}) => {
 // post a review
@@ -19,11 +21,11 @@ const AddReviewForm = ({spaces, reviews}) => {
     const review = {
        rating: rating,
        comment: text,
-     
-       space_id: spaces.id
+        profile_id: 1,
+       space_id: 1
       }
     console.log(review)
-    fetch('http://127.0.0.1:3000/reviews', {
+    fetch('http://127.0.0.1:4000/reviews', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review)
@@ -32,7 +34,10 @@ const AddReviewForm = ({spaces, reviews}) => {
     })
   }
 
-
+    const {id} = useParams();
+    console.log("id", id);
+    const user = JSON.parse(sessionStorage.getItem("user"));
+    console.log("user", user);
 
 
 

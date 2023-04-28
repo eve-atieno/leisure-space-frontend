@@ -15,9 +15,9 @@ console.log(id);
 console.log(spaces)
   const [checkInTime, setCheckInTime] = useState("");
   const [checkOutTime, setCheckOutTime] = useState("");
-  const [totalPrice , setTotalPrice]=useState(0)
+  // const [totalPrice , setTotalPrice]=useState(0)
 
-  const currentTime = new Date()
+  // const currentTime = new Date()
 
   function handleCheckInChange(event){
     setCheckInTime(event.target.value)
@@ -27,23 +27,24 @@ console.log(spaces)
     setCheckOutTime(event.target.value)
   }
 
-  function calculateTotalPrice(){
-    const checkInDate = new Date (checkInTime)
-    const checkOutDate = new Date (checkOutTime)
 
-    if(checkInDate > checkOutDate){
-     alert("Check-out time must be after check-in time")
-    }
-    const timeDiff = checkOutDate.getTime() - checkInDate.getTime()
-    const diffDays = Math.ceil (timeDiff/(1000 * 3600 * 24))
+  // function calculateTotalPrice(){
+  //   const checkInDate = new Date (checkInTime)
+  //   const checkOutDate = new Date (checkOutTime)
 
-    const basePrice = 800
-    const additionalPricePerDay = 120
-    const pricePerGuest = 150
-    const total = basePrice + (additionalPricePerDay * diffDays * pricePerGuest)
+  //   if(checkInDate > checkOutDate){
+  //    alert("Check-out time must be after check-in time")
+  //   }
+  //   const timeDiff = checkOutDate.getTime() - checkInDate.getTime()
+  //   const diffDays = Math.ceil (timeDiff/(1000 * 3600 * 24))
+
+  //   const basePrice = 800
+  //   const additionalPricePerDay = 120
+  //   const pricePerGuest = 150
+  //   const total = basePrice + (additionalPricePerDay * diffDays * pricePerGuest)
     
-    setTotalPrice(total)
-  }
+  //   setTotalPrice(total)
+  // }
 
 
   // const handleCheckIn = () => {
@@ -86,7 +87,7 @@ console.log(spaces)
               />
             </div>
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
                   src={space.media[1].image_url}
                   alt="."
@@ -101,8 +102,9 @@ console.log(spaces)
                 />
               </div>
             </div>
+          
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
                   src={space.media[3].image_url}
                   alt="."
@@ -207,12 +209,12 @@ console.log(spaces)
             </div>
 
             <form className="mt-10">
-              {totalPrice > 0 &&(
-                <div>
-                  <p>Total Price: ksh{totalPrice}</p>
-                  <p>Time: {currentTime.toDateString()}</p>
+              {/* {totalPrice > 0 &&(
+                <div> */}
+                  {/* <p>Total Price: ksh{totalPrice}</p> */}
+                  {/* <p>Time: {currentTime.toDateString()}</p>
                 </div>
-              )}
+              )} */}
               
               <label htmlFor="checkIn">Check-in date and time:</label>
               <input
@@ -230,7 +232,7 @@ console.log(spaces)
                 onChange={handleCheckOutChange}
               />
               <br />
-              <button type= 'button' onClick={calculateTotalPrice}>calculate Total Price</button>
+              {/* <button type= 'button' onClick={calculateTotalPrice}>calculate Total Price</button> */}
               <br/>
               <label htmlFor="guest">number of guest:</label>
               <input

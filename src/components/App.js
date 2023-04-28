@@ -44,7 +44,7 @@ function App() {
   const [spaces, setSpaces] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/spaces')
+    fetch('http://127.0.0.1:4000/spaces')
       .then((res) => res.json())
       .then((data) => {
         setSpaces(data);
@@ -54,7 +54,7 @@ function App() {
 
   
   useEffect(() => {
-    fetch('http://127.0.0.1:3000/reviews')
+    fetch('http://127.0.0.1:4000/reviews')
       .then((res) => res.json())
       .then((data) => {
         setReviews(Array.isArray(data) ? data : [])
