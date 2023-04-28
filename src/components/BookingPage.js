@@ -30,16 +30,18 @@ function BookingPage({ spaces }) {
     const checkInDate = new Date(checkInTime);
     const checkOutDate = new Date(checkOutTime);
 
-    if (checkInDate > checkOutDate) {
-      alert("Check-out time must be after check-in time");
-    }
-    const timeDiff = checkOutDate.getTime() - checkInDate.getTime();
-    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    // if (checkInDate > checkOutDate) {
+    //   alert("Check-out time must be after check-in time");
+    // }
+    const diffInMs = checkOutDate - checkInDate;
+    const diffInDays = Math.floor(diffInMs / (24 * 60 * 60 * 1000));
+    const totalCost = diffInDays * 3500;
 
-    const basePrice = 800;
-    const additionalPricePerDay = 120;
-    const pricePerGuest = 150;
-    const total = basePrice + additionalPricePerDay * diffDays * pricePerGuest;
+
+
+    
+    
+    const total =  totalCost ;
 
     setTotalPrice(total);
   }
@@ -49,8 +51,8 @@ function BookingPage({ spaces }) {
   const image = space.media[1].image_url;
 
   //price
-  const price = space.price;
-  console.log(space.id + "space id");
+  // const price = space.price;
+  // console.log(space.id + "space id");/
 
   // post a booking
   const submitBooking = (e) => {
@@ -61,7 +63,7 @@ function BookingPage({ spaces }) {
       profile_id: 1,
       space_id: space.id,
     };
-    fetch("http://127.0.0.1:4000/bookings", {
+    fetch("http://127.0.0.1:000/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking),
@@ -316,6 +318,9 @@ function BookingPage({ spaces }) {
             >
               Calculate Total Price
             </button>
+
+            <p> ksh:{totalPrice}</p>
+
             <label htmlFor="guest" className="block mb-2">
               Number of guests:
             </label>
