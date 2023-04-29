@@ -1,3 +1,4 @@
+import { da } from "date-fns/locale";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -8,38 +9,30 @@ export default function AuthProvider({ children }) {
   const navigate = useNavigate();
   const [user, setUser] = useState();
   const [change, setOnChange] = useState(false);
+  const [admin , setAdmin] = useState();
 
   // login
-  const login = (email, password) => {
-    fetch("http://127.0.0.1:3000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        // console.log(email);
-        // console.log(response);
-
-        setOnChange(!change);
-
-        if (response.error) {
-          // console.log(response.error)
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: response.error,
-            footer: '<a href="">Why do I have this issue?</a>',
-          });
-        } else if (response.user) {
-          setUser(response);
-          sessionStorage.setItem("user", JSON.stringify(response.user));
-          sessionStorage.setItem("jwtToken", response.jwt);
+ const login = (email, password, userType) => {
+  fetch("http://127.0.0.1:3000/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password, userType }),
+  })
+  .then((res) => res.json())
+  .then((response) => {
+    setOnChange(!change);
+    if (response.error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: response.error,
+      });
+    } else if (response.user) {
+      setUser(response.user);
+      sessionStorage.setItem("user", JSON.stringify(response.user));
+      sessionStorage.setItem("jwtToken", response.jwt);
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -47,11 +40,22 @@ export default function AuthProvider({ children }) {
             showConfirmButton: false,
             timer: 1500,
           });
-          // navigate("/");
-          navigate("/");  
-        } 
-      });
-  };
+          navigate("/");
+    } else if (response.admin) {
+      setAdmin(response.admin);
+      sessionStorage.setItem("admin", JSON.stringify(response.admin));
+      sessionStorage.setItem("jwtToken", response.jwt);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "LoggedIn successfully!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/spaces");
+    }
+  });
+};
 
   // Register
   const register = (name, email, password,confirmPassword) => {
@@ -105,6 +109,7 @@ export default function AuthProvider({ children }) {
     login,
     register,
     logout,
+    admin,
   };
 // fetch user
   useEffect(() => {

@@ -16,7 +16,7 @@ const Invoice = () => {
     });
   };
 
-  const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
+  // const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
   const user = JSON.parse(sessionStorage.getItem("user"));
 
   const [startDate, setStartDate] = useState(new Date());

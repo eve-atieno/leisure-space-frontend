@@ -12,12 +12,20 @@ function Card({ spaces, setSpace }) {
     <div className="card-container">
       <Link to={`/booking/${spaces.id}`}>
         <div className="card-box text-black">
-          <img
+          {/* <img
             className="card-img"
             src={spaces.media[1].image_url}
             alt="space"
-          />
-
+          /> */}
+          {spaces.media.length > 0 ? (
+            <img
+              className="card-img"
+              src={spaces.media[0].image_url}
+              alt="space"
+            />
+          ) : (
+            <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+          )}
           <div className="card-info-flex mt-1">
             <h4 className="name">{spaces.name}</h4>
           </div>
