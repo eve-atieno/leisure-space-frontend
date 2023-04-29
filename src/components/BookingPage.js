@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BiCurrentLocation } from "react-icons/bi";
 import { IoMdWifi } from "react-icons/io";
 import { Link } from "react-router-dom";
-
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -26,12 +25,9 @@ function BookingPage({ spaces }) {
     setCheckOutTime(event.target.value);
   }
 
-  // function calculateTotalPrice() {
-
-
-  const space = spaces.find((space) => space.id === parseInt(id));
+  const space = spaces.find((space) => space.id === parseInt(id)) || { media: [] };
   //image
-  const image = space.media[1].image_url;
+  const image = space.media && space.media[1].image_url;
 
   //price
   const price = space.price;
@@ -77,48 +73,57 @@ function BookingPage({ spaces }) {
 
   return (
     <div className="bg-white">
+
       <div className="pt-6">
+      
         <h1 className="text-black text-2xl items-centre my-8 justify-center flex">
           {space.name}
         </h1>
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-            <img
+            {/* <img
               src={space.media[0].image_url}
               alt="."
               class="h-full w-full object-cover object-center"
-            />
+            /> */}
+            { space.media[0] ? <img
+              src={space.media[0].image_url}
+              alt="."
+              class="h-full w-full object-cover object-center"
+            /> : null }
+          
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img
-                src={space.media[1].image_url}
-                alt="."
-                class="h-full w-full object-cover object-center"
-              />
+            { space.media[0] ? <img
+              src={space.media[1].image_url}
+              alt="."
+              class="h-full w-full object-cover object-center"
+            /> : null }
             </div>
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img
-                src={space.media[2].image_url}
-                alt="."
-                class="h-full w-full object-cover object-center"
-              />
+            { space.media[0] ? <img
+              src={space.media[2].image_url}
+              alt="."
+              class="h-full w-full object-cover object-center"
+            /> : null }
             </div>
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img
-                src={space.media[3].image_url}
-                alt="."
-                class="h-full w-full object-cover object-center"
-              />
+            { space.media[0] ? <img
+              src={space.media[3].image_url}
+              alt="."
+              class="h-full w-full object-cover object-center"
+            /> : null }
             </div>
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <img
-                src={space.media[4].image_url}
-                alt="."
-                class="h-full w-full object-cover object-center"
-              />
+            { space.media[0] ? <img
+           
+              src={space.media[4].image_url}
+              alt="."
+              class="h-full w-full object-cover object-center"
+            /> : null }
             </div>
           </div>
         </div>
@@ -267,8 +272,6 @@ function BookingPage({ spaces }) {
             </div>
           </div>
         </div>
-
-        {/*  */}
 
         <div className="lg:col-span-2 mt-4 lg:col-start-3 lg:pr-8 lg:pt-6 lg:mb-10">
           <form onSubmit={submitBooking} className="mt-10">

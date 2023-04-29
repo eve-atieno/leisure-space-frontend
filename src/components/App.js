@@ -67,12 +67,13 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <NavBar />
+      <NavBar />
         <Routes>
-          <Route path="/" element={[<Home />]} />
+          <Route path="/" element={[ <Home />]} />
           <Route
             path="/booking/:id"
             element={[
+             
               <BookingPage spaces={spaces} />,
               <ReviewsContainer
                 spaces={spaces}
@@ -82,7 +83,9 @@ function App() {
               />,
             ]}
           />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup" element={ 
+             
+          <SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route
             path="/spaces"
