@@ -135,7 +135,7 @@ function BookingPage({ spaces }) {
           </h3>
         </div>
         <div className="mt-4  ml-20 pl-20 lg:row-span-3 ">
-          <p className="text-3xl  text-gray-900">Ksh {space.price}/day</p>
+          <p className="text-3xl  text-gray-900">Ksh {space.price}/Night</p>
           <div className="mt-6">
             <h3 className="sr-only">Reviews</h3>
             <div className="flex items-center">
