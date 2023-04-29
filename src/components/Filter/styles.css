@@ -6,7 +6,6 @@
   align-items: center;
   overflow-x: auto;
 }
-
 .links-box {
   display: flex;
   flex-direction: column;

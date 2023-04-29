@@ -13,6 +13,7 @@ import AuthProvider from "./AuthContext";
 import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
 import Invoice from "./Invoice/Invoice";
+import AgreementIncubator from "./AgreementIncubator";
 
 function ReviewsContainer({ spaces, reviews, onAddReview }) {
   return (
@@ -97,6 +98,7 @@ function App() {
           <Route path="/addspace" element={<AddSpace />} />
           <Route path="/createadmin" element={<CreateAdmin />} />
           <Route path="/invoice" element={<Invoice />} />
+          <Route path="/agreement" element={<AgreementIncubator />} />
         </Routes>
         <Footer />
       </AuthProvider>
