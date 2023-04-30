@@ -57,38 +57,34 @@ function AddSpace() {
       console.log("space", space);
   };
 
-  const [files, setFiles] = useState([]);
+  const [file, setFile] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    const images = e.target.querySelectorAll("input[type=file]");
-    const spaceId = "12"; // replace with the actual space ID
-  
-    for (let i = 0; i < images.length; i++) {
-      const file = images[i].files[0];
-      formData.append("image_url", file);
-      formData.append("space_id", spaceId);
-  
-      try {
-        const response = await fetch("http://127.0.0.1:3000/media", {
-          method: "POST",
-          body: formData,
-        });
-  
-        if (!response.ok) {
-          throw new Error("Failed to upload image");
-        }
-  
-        console.log("Image uploaded successfully");
-      } catch (error) {
-        console.error(error);
+    formData.append("image_url", file);
+    formData.append("space_id", id);
+    console.log("formData", formData);
+    fetch("http://127.0.0.1:3000/media", {
+      method: "POST",
+      body: formData,
+    })
+      .then(() => {
+       console.log("formData", formData);
       }
-    }
+      )
+      .catch((error) => {
+        console.error("Error:", error);
+      }
+      );
+
   };
   const handleFileChange = (e) => {
-    setFiles(e.target.files);
+    setFile(e.target.files[0]);
   };
+
+
+
 
 
   return (
@@ -150,52 +146,7 @@ function AddSpace() {
                 name="image1"
                 onChange={handleFileChange}
               />
-            </div>
-            <div className="form-group mb-2">
-              <label htmlFor="image2">Image 2</label>
-              <input
-                type="file"
-                className="form-control"
-                name="image2"
-                onChange={handleFileChange}
-              />
-            </div>
-            <div className="form-group mb-2">
-              <label htmlFor="image3">Image 3</label>
-              <input
-                type="file"
-                className="form-control"
-                name="image3"
-                onChange={handleFileChange}
-              />
-            </div>
-            <div className="form-group mb-2">
-              <label htmlFor="image4">Image 4</label>
-              <input
-                type="file"
-                className="form-control"
-                name="image4"
-                onChange={handleFileChange}
-              />
-            </div>
-            <div className="form-group mb-2">
-              <label htmlFor="image5">Image 5</label>
-              <input
-                type="file"
-                className="form-control"
-                name="image5"
-                onChange={handleFileChange}
-              />
-            </div>
-            <div className="form-group mb-2">
-              <label htmlFor="image6">Image 6</label>
-              <input
-                type="file"
-                className="form-control"
-                name="image6"
-                onChange={handleFileChange}
-              />
-            </div>
+            </div>   
             <button type="submit" className="btn btn-primary btn-block mb-5">
               Submit
             </button>
