@@ -31,7 +31,6 @@ function Home({ user }) {
                     </div>
                   </Carousel.Caption>
                 </Carousel.Item>
-
                 <Carousel.Item interval={500}>
                   <img
                     className="d-block w-100 img"
@@ -136,11 +135,6 @@ function Home({ user }) {
                     src="https://i.pinimg.com/564x/1d/3f/ae/1d3faef4032474a2bff76cd662c7e735.jpg"
                     alt="image ow a woman studying"
                     className="h-full rounded-md object-cover object-center md:block hidden"
-                  />
-                  <img
-                    src="https://i.ibb.co/NT0VJcd/pexels-la-miko-3681591-1.png"
-                    alt="image ow a woman studying"
-                    className="h-auto w-auto md:hidden block"
                   />
                 </div>
               </div>

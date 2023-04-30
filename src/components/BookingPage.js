@@ -22,7 +22,9 @@ function BookingPage({ spaces }) {
   function handleCheckOutChange(event) {
     setCheckOutTime(event.target.value);
   }
-  const space = spaces.find((space) => space.id === parseInt(id)) || { media: [] };
+  const space = spaces.find((space) => space.id === parseInt(id)) || {
+    media: [],
+  };
   //image
   //price
 
@@ -59,64 +61,85 @@ function BookingPage({ spaces }) {
             timer: 1500,
           });
           navigate("/reserve");
-          
         }
       });
   };
-  
+
+  const admin = JSON.parse(sessionStorage.getItem("admin"));
+  //if is admin do not show the button
+
   return (
     <div className="bg-white">
-      <div className="pt-6">
-        <h1 className="text-black text-2xl items-centre my-8 justify-center flex">
-          {space.name}
-        </h1>
-        <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-          <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-            { space.media[0] ? <img
+    <div className="pt-6">
+      <h1 className="text-black text-2xl items-center my-8 justify-center flex">
+        {space.name}
+      </h1>
+      <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+        <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+          {space.media[0] ? (
+            <img
               src={space.media[0].image_url}
               alt="."
-              class="h-full w-full object-cover object-center"
-            /> : null }
+              className="h-full w-full object-cover object-center hover:scale-105"
+            />
+          ) : (
+            <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+          )}
+        </div>
+        <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+            {space.media[1] ? (
+              <img
+                src={space.media[1].image_url}
+                alt="."
+                className="h-full w-full object-cover object-center hover:scale-105"
+              />
+            ) : (
+              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+            )}
           </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            { space.media[0] ? <img
-              src={space.media[1].image_url}
-              alt="."
-              class="h-full w-full object-cover object-center"
-            /> : null }
-            </div>
-            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            { space.media[0] ? <img
-              src={space.media[2].image_url}
-              alt="."
-              class="h-full w-full object-cover object-center"
-            /> : null }
-            </div>
+          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+            {space.media[2] ? (
+              <img
+                src={space.media[2].image_url}
+                alt="."
+                className="h-full w-full object-cover object-center hover:scale-105"
+              />
+            ) : (
+              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+            )}
           </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            { space.media[0] ? <img
-              src={space.media[3].image_url}
-              alt="."
-              class="h-full w-full object-cover object-center"
-            /> : null }
-            </div>
-            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            { space.media[0] ? <img
-           
-              src={space.media[4].image_url}
-              alt="."
-              class="h-full w-full object-cover object-center"
-            /> : null }
-            </div>
+        </div>
+        <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+            {space.media[3] ? (
+              <img
+                src={space.media[3].image_url}
+                alt="."
+                className="h-full w-full object-cover object-center hover:scale-105"
+              />
+            ) : (
+              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+            )}
+          </div>
+          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg hover:scale-105">
+            {space.media[4] ? (
+              <img
+                src={space.media[4].image_url}
+                alt="."
+                className="h-full w-full object-cover object-center hover:scale-105"
+              />
+            ) : (
+              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+            )}
           </div>
         </div>
       </div>
+    </div>
       <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,0fr] lg:gap-x-8 lg:px-8 lg:pb-2 lg:pt-5">
         <div className="lg:col-span-2  lg:pr-8">
           <h3 className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">
-           {space.description}
+            {space.description}
           </h3>
         </div>
         <div className="mt-4  ml-20 pl-20 lg:row-span-3 ">
@@ -296,7 +319,11 @@ function BookingPage({ spaces }) {
               id="numberofguest"
               className="w-full border border-gray-300 rounded-md py-2 px-3 mb-4"
             />
-            {isLoggedIn ? (
+            {isLoggedIn && admin ? (
+              <p className="block w-full text-center mb-4">
+                Admin users cannot reserve spaces.
+              </p>
+            ) : isLoggedIn ? (
               <button
                 type="submit"
                 className="block w-full bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"

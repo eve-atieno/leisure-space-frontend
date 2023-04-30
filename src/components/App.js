@@ -14,6 +14,9 @@ import AddSpace from "../admin/AddSpace";
 import CreateAdmin from "../admin/CreateAdmin";
 import Invoice from "./Invoice/Invoice";
 import AgreementIncubator from "./AgreementIncubator";
+import Profile from "./Profile";
+
+
 
 function ReviewsContainer({ spaces, reviews, onAddReview }) {
   return (
@@ -138,6 +141,7 @@ function App() {
           <Route path="/createadmin" element={<CreateAdmin />} />
           <Route path="/invoice" element={<Invoice />} />
           <Route path="/agreement" element={<AgreementIncubator />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
       </AuthProvider>
