@@ -16,7 +16,7 @@ function AgreementIncubator() {
   return (
     <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-lg font-medium text-gray-900">Airbnb Agreement Incubator</h2>
+        <h2 className="text-lg font-medium text-gray-900">LeisureSpace Agreement Incubator</h2>
         <div className="mt-4">
           <div className="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-indigo-600 bg-indigo-100 rounded-lg hover:bg-indigo-200 focus:outline-none focus-visible:ring focus-visible:ring-indigo-500 focus-visible:ring-opacity-50" onClick={() => setSection1Open(!section1Open)}>
             <span>Overview</span>
