@@ -80,7 +80,7 @@ function BookingPage({ spaces }) {
             <img
               src={space.media[0].image_url}
               alt="."
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover object-center hover:scale-105"
             />
           ) : (
             <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
@@ -92,7 +92,7 @@ function BookingPage({ spaces }) {
               <img
                 src={space.media[1].image_url}
                 alt="."
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-center hover:scale-105"
               />
             ) : (
               <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
@@ -103,7 +103,7 @@ function BookingPage({ spaces }) {
               <img
                 src={space.media[2].image_url}
                 alt="."
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-center hover:scale-105"
               />
             ) : (
               <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
@@ -116,18 +116,18 @@ function BookingPage({ spaces }) {
               <img
                 src={space.media[3].image_url}
                 alt="."
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-center hover:scale-105"
               />
             ) : (
               <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
             )}
           </div>
-          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg hover:scale-105">
             {space.media[4] ? (
               <img
                 src={space.media[4].image_url}
                 alt="."
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover object-center hover:scale-105"
               />
             ) : (
               <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>

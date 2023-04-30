@@ -136,11 +136,6 @@ function Home({ user }) {
                     alt="image ow a woman studying"
                     className="h-full rounded-md object-cover object-center md:block hidden"
                   />
-                  <img
-                    src="https://i.ibb.co/NT0VJcd/pexels-la-miko-3681591-1.png"
-                    alt="image ow a woman studying"
-                    className="h-auto w-auto md:hidden block"
-                  />
                 </div>
               </div>
             </div>
