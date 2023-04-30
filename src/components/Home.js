@@ -31,7 +31,6 @@ function Home({ user }) {
                     </div>
                   </Carousel.Caption>
                 </Carousel.Item>
-
                 <Carousel.Item interval={500}>
                   <img
                     className="d-block w-100 img"

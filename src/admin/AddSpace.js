@@ -1,6 +1,7 @@
-import React, { useState,useContext , Fragment } from "react";
+import React, { useState,useContext , Fragment, useEffect } from "react";
 import { AuthContext } from "../components/AuthContext";
 import { useParams } from "react-router-dom";
+
 
 function AddSpace() {
 
@@ -31,6 +32,7 @@ function AddSpace() {
 
 
   const { id } = useParams();
+
   const handleAdmin = (e) => {
     e.preventDefault();
     const space = {
@@ -47,7 +49,6 @@ function AddSpace() {
       body: JSON.stringify(space),
       
     })
-
       .then(() => {
         window.location.reload();
       })
@@ -57,35 +58,47 @@ function AddSpace() {
       console.log("space", space);
   };
 
-  const [file, setFile] = useState(null);
+//  fetch admin
+  const [spaces, setSpaces] = useState([]);
 
-  const handleSubmit = async (e) => {
+  useEffect(() => {
+    fetch("http://127.0.0.1:3000/spaces")
+      .then((res) => res.json())
+      .then((data) => {
+        setSpaces(data);
+      });
+  }, []);
+
+//  get the last space
+  const lastSpace = spaces[spaces.length - 1];
+  console.log("lastSpace", lastSpace);
+
+  // post an image to the space id of last space
+  const [image, setImage] = useState("");
+
+  const handleImage = (e) => {
+    setImage(e.target.value);
+  };
+
+  const handleImageSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("image_url", file);
-    formData.append("space_id", id);
-    console.log("formData", formData);
+    const imag = {
+      image_url: image,
+      space_id: lastSpace.id,
+    };
+    console.log("image", image);
     fetch("http://127.0.0.1:3000/media", {
       method: "POST",
-      body: formData,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(imag),
     })
       .then(() => {
-       console.log("formData", formData);
-      }
-      )
+        window.location.reload();
+      })
       .catch((error) => {
         console.error("Error:", error);
-      }
-      );
-
+      });
   };
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
-
-
-
-
 
   return (
     <> 
@@ -137,8 +150,10 @@ function AddSpace() {
       <div className="row">
         <div className="col-md-6 offset-md-3 mt-5">
           <h1 className="text-center">Upload Images</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group mb-2">
+          <form 
+          onSubmit={handleImageSubmit}
+          >
+            {/* <div className="form-group mb-2">
               <label htmlFor="image1">Image 1</label>
               <input
                 type="file"
@@ -146,7 +161,18 @@ function AddSpace() {
                 name="image1"
                 onChange={handleFileChange}
               />
-            </div>   
+            </div>    */}
+            <div className="form-group mb-2">
+              <label htmlFor="image">Image </label>
+              <input
+                type="text"
+                className="form-control"
+                value={image}
+                onChange={handleImage}
+                placeholder="Enter image url"
+              />
+            </div>
+
             <button type="submit" className="btn btn-primary btn-block mb-5">
               Submit
             </button>

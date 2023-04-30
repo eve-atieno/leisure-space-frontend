@@ -8,33 +8,34 @@
 }
 
 body {
- 
   font-family: "Nunito Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 .card-container a {
   text-decoration: none;
 }
-.card-container{
+
+.card-container {
   margin: 15px auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   grid-gap: 20px;
-  
   width: 100%;
-  
 }
+
 .cards-flex {
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   padding: 1rem 3rem;
   flex-direction: column;
 }
+
 .card-box {
   margin: 1rem !important;
   margin-bottom: 3rem !important;
@@ -47,34 +48,28 @@ body {
 }
 
 .card-img {
-  height: 370px!important;
-  width: 410px!important;
-  object-fit: cover!important;
+  height: 370px !important;
+  width: 410px !important;
+  object-fit: cover !important;
   border-radius: 0.5rem !important;
 }
 
 .card-info-flex {
-  display: flex!important;
+  display: flex !important;
   justify-content: space-between !important;
   align-items: flex-start !important;
-  width: 270px!important;
+  width: 270px !important;
 }
-  
-  
-
 
 .rating {
-  display: flex!important;
-  align-items: center!important;
+  display: flex !important;
+  align-items: center !important;
   gap: 0.25rem !important;
- 
 }
 
 .card-box .swiper-pagination-bullet-active {
   background-color: var(--white) !important;
 }
-
-
 
 @media only screen and (max-width: 1000px) {
   .swiper-container,
@@ -87,12 +82,29 @@ body {
 @media only screen and (max-width: 800px) {
   .swiper-container,
   .card-img {
-    height: 100%;
-    max-height: 400px;
+    height: auto;
     width: 90vw;
+    max-height: 400px;
   }
 
   .cards-flex {
-    padding: 0px!important;
+    padding: 0px !important;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .card-img {
+    height: auto;
+    max-height: 300px;
+    width: 100%;
+  }
+
+  .card-info-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
