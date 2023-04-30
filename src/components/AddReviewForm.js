@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const AddReviewForm = ({ spaces, reviews }) => {
+const AddReviewForm = ({ spaces, reviews, setReviews }) => {
   const [users, setUsers] = useState([]);
 
   const { id } = useParams();
@@ -16,16 +16,11 @@ const AddReviewForm = ({ spaces, reviews }) => {
       });
   }, []);
 
-  //show the user id that is equal to users id
   const user_id = users.filter((user) => user.id === user.id);
-  // console.log("user_id", user_id);
-
-  // console.log("user", user_id.profile_id);
-
-  // post a review
-  // const [name, setName] = useState('')
+  
   const [rating, setRating] = useState("");
   const [text, setText] = useState("");
+  const [change, setOnChange] = useState(false);
 
   const handleRating = (e) => {
     setRating(e.target.value);
@@ -40,8 +35,10 @@ const AddReviewForm = ({ spaces, reviews }) => {
       rating: rating,
       comment: text,
       profile_id: 1,
-      space_id: 1,
+      space_id: id,
     };
+    console.log("review", review);
+
     fetch("http://127.0.0.1:3000/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -54,7 +51,9 @@ const AddReviewForm = ({ spaces, reviews }) => {
         console.error("Error:", error);
       });
   };
-  
+// reviews that match the space id only
+  const spaceReviews = reviews.filter((review) => review.space_id == id);
+  console.log("spaceReviews", spaceReviews);
 
   return (
     <>
@@ -67,7 +66,7 @@ const AddReviewForm = ({ spaces, reviews }) => {
             </div>
             <div className="flex flex-row justify-around">
               <div className="flex flex-col">
-                {reviews.map((review) => (
+                {spaceReviews.map((review) => (
                   <div
                     key={review.id}
                     className="border border-gray-200 rounded-lg p-2 mb-2"

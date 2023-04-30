@@ -10,28 +10,21 @@ function BookingPage({ spaces }) {
   const navigate = useNavigate();
 
   const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
   const isLoggedIn = sessionStorage.getItem("jwtToken") ? true : false;
   const [checkInTime, setCheckInTime] = useState("");
   const [checkOutTime, setCheckOutTime] = useState("");
   // const [totalPrice, setTotalPrice] = useState(0);
-
   const currentTime = new Date();
-
   function handleCheckInChange(event) {
     setCheckInTime(event.target.value);
   }
-
   function handleCheckOutChange(event) {
     setCheckOutTime(event.target.value);
   }
-
   const space = spaces.find((space) => space.id === parseInt(id)) || { media: [] };
   //image
-  const image = space.media && space.media[1].image_url;
-
   //price
-  const price = space.price;
-  console.log(space.id + "space id");
 
   // post a booking
   const submitBooking = (e) => {
@@ -70,28 +63,20 @@ function BookingPage({ spaces }) {
         }
       });
   };
-
+  
   return (
     <div className="bg-white">
-
       <div className="pt-6">
-      
         <h1 className="text-black text-2xl items-centre my-8 justify-center flex">
           {space.name}
         </h1>
         <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
           <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-            {/* <img
-              src={space.media[0].image_url}
-              alt="."
-              class="h-full w-full object-cover object-center"
-            /> */}
             { space.media[0] ? <img
               src={space.media[0].image_url}
               alt="."
               class="h-full w-full object-cover object-center"
             /> : null }
-          
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
@@ -131,7 +116,7 @@ function BookingPage({ spaces }) {
       <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,0fr] lg:gap-x-8 lg:px-8 lg:pb-2 lg:pt-5">
         <div className="lg:col-span-2  lg:pr-8">
           <h3 className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">
-            Private room in home hosted by bruce
+           {space.description}
           </h3>
         </div>
         <div className="mt-4  ml-20 pl-20 lg:row-span-3 ">
@@ -191,7 +176,6 @@ function BookingPage({ spaces }) {
                     clip-rule="evenodd"
                   />
                 </svg>
-
                 <svg
                   className="text-gray-200 h-5 w-5 flex-shrink-0"
                   viewBox="0 0 20 20"
