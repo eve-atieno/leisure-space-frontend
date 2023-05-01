@@ -47,4 +47,3 @@ Peninnah Wanjiru
 Everline Atieno
 Brian Mathenge
 Aisha Mohammed
-
