@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import userEvent from "@testing-library/user-event";
+import React, { useEffect, useState } from "react";
 import { BiCurrentLocation } from "react-icons/bi";
 import { IoMdWifi } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -26,18 +27,17 @@ function BookingPage({ spaces }) {
     media: [],
   };
   //image
-  //price
-
+  const user = JSON.parse(sessionStorage.getItem("user"));
   // post a booking
   const submitBooking = (e) => {
     e.preventDefault();
     const booking = {
       start_date: checkInTime,
       end_date: checkOutTime,
-      profile_id: 1,
+      user_id: user.id,
       space_id: space.id,
     };
-    fetch("http://127.0.0.1:3000/bookings", {
+    fetch("https://leisure.onrender.com/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(booking),
@@ -67,75 +67,127 @@ function BookingPage({ spaces }) {
 
   const admin = JSON.parse(sessionStorage.getItem("admin"));
   //if is admin do not show the button
+  const [isbooked, setIsbooked] = useState(false);
+  const [booked, setBooked] = useState([]);
+  //get booked space
+  useEffect(() => {
+    fetch("https://leisure.onrender.com/bookings ")
+      .then((res) => res.json())
+      .then((data) => {
+        setBooked(data);
+        setIsLoading(false);
+      });
+  }, []);
+  //check if the space is booked or not
+  useEffect(() => {
+    if (booked.length > 0) {
+      const isBooked = booked.find((book) => book.space_id === space.id);
+      if (isBooked) {
+        setIsbooked(true);
+      }
+    }
+  }, [booked, space.id]);
+
+  //get the startDate and endDate of the booked space
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  useEffect(() => {
+    if (booked.length > 0) {
+      const isBooked = booked.find((book) => book.space_id === space.id);
+      if (isBooked) {
+        setStartDate(isBooked.start_date);
+        setEndDate(isBooked.end_date);
+      } else {
+        setStartDate("none");
+        setEndDate("none");
+      }
+    }
+  }, [booked, space.id]);
+
+  console.log(startDate);
+  console.log(endDate);
+  console.log(isbooked);
 
   return (
     <div className="bg-white">
-    <div className="pt-6">
-      <h1 className="text-black text-2xl items-center my-8 justify-center flex">
-        {space.name}
-      </h1>
-      <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-        <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
-          {space.media[0] ? (
-            <img
-              src={space.media[0].image_url}
-              alt="."
-              className="h-full w-full object-cover object-center hover:scale-105"
-            />
-          ) : (
-            <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
-          )}
+      <div className="pt-6">
+        <h1 className="text-black text-2xl items-center my-8 justify-center flex">
+          {space.name}
+        </h1>
+        <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+          <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
+            {space.media[0] ? (
+              <img
+                src={space.media[0].image_url}
+                alt="."
+                className="h-full w-full object-cover object-center hover:scale-105"
+              />
+            ) : (
+              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+            )}
+          </div>
+          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+              {space.media[1] ? (
+                <img
+                  src={space.media[1].image_url}
+                  alt="."
+                  className="h-full w-full object-cover object-center hover:scale-105"
+                />
+              ) : (
+                <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+              )}
+            </div>
+            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+              {space.media[2] ? (
+                <img
+                  src={space.media[2].image_url}
+                  alt="."
+                  className="h-full w-full object-cover object-center hover:scale-105"
+                />
+              ) : (
+                <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+              )}
+            </div>
+          </div>
+          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
+              {space.media[3] ? (
+                <img
+                  src={space.media[3].image_url}
+                  alt="."
+                  className="h-full w-full object-cover object-center hover:scale-105"
+                />
+              ) : (
+                <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+              )}
+            </div>
+            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg hover:scale-105">
+              {space.media[4] ? (
+                <img
+                  src={space.media[4].image_url}
+                  alt="."
+                  className="h-full w-full object-cover object-center hover:scale-105"
+                />
+              ) : (
+                <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+              )}
+            </div>
+          </div>
+
         </div>
-        <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            {space.media[1] ? (
-              <img
-                src={space.media[1].image_url}
-                alt="."
-                className="h-full w-full object-cover object-center hover:scale-105"
-              />
+        <div className="some-container">
+          <p className="items-end justify-center flex">
+            {startDate !== "none" ? (
+              <span className="text-lg font-bold tracking-tight text-gray-900 sm:text-lg">
+                {startDate} - {endDate}
+              </span>
             ) : (
-              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
+              <span></span>
             )}
-          </div>
-          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            {space.media[2] ? (
-              <img
-                src={space.media[2].image_url}
-                alt="."
-                className="h-full w-full object-cover object-center hover:scale-105"
-              />
-            ) : (
-              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
-            )}
-          </div>
-        </div>
-        <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-            {space.media[3] ? (
-              <img
-                src={space.media[3].image_url}
-                alt="."
-                className="h-full w-full object-cover object-center hover:scale-105"
-              />
-            ) : (
-              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
-            )}
-          </div>
-          <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg hover:scale-105">
-            {space.media[4] ? (
-              <img
-                src={space.media[4].image_url}
-                alt="."
-                className="h-full w-full object-cover object-center hover:scale-105"
-              />
-            ) : (
-              <div className="w-64 h-64 bg-gray-200 rounded-lg"></div>
-            )}
-          </div>
+          </p>
         </div>
       </div>
-    </div>
       <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,0fr] lg:gap-x-8 lg:px-8 lg:pb-2 lg:pt-5">
         <div className="lg:col-span-2  lg:pr-8">
           <h3 className="text-xl font-bold tracking-tight text-gray-900 sm:text-2xl">

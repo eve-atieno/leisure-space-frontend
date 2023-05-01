@@ -38,7 +38,7 @@ const Invoice = () => {
 
   //get the bookings from the database
   useEffect(() => {
-    fetch("http://localhost:3000/bookings")
+    fetch("https://leisure.onrender.com/bookings")
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
@@ -77,8 +77,6 @@ const Invoice = () => {
       setNumberOfDays(diffDays);
     }
   }, [bookingDates]);
-  console.log("start date", bookingDates[0]);
-  console.log("end date", bookingDates[1]);
 
 
   // get the price of the space multiplied by the number of days
@@ -89,8 +87,7 @@ const Invoice = () => {
       setTotalPrice(numberOfDays * lastBooking.space.price);
     }
   }, [numberOfDays]);
-  console.log(totalPrice);
-
+ 
 
   return (
     <div className="flex flex-col items-center justify-center h-screen w-screen bg-gray-100">

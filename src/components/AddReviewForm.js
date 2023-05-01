@@ -9,7 +9,7 @@ const AddReviewForm = ({ spaces, reviews, setReviews }) => {
   const user = JSON.parse(sessionStorage.getItem("user"));
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/users")
+    fetch("hhttps://leisure.onrender.com")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -29,17 +29,19 @@ const AddReviewForm = ({ spaces, reviews, setReviews }) => {
   const handleText = (e) => {
     setText(e.target.value);
   };
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const review = {
       rating: rating,
       comment: text,
-      profile_id: 1,
+      user_id: user.id,
       space_id: id,
     };
     console.log("review", review);
 
-    fetch("http://127.0.0.1:3000/reviews", {
+    fetch("https://leisure.onrender.com/reviews", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review),
