@@ -31,7 +31,7 @@ function Reserve() {
 
   //get the bookings from the database
   useEffect(() => {
-    fetch("http://localhost:3000/bookings")
+    fetch("https://leisure.onrender.com/bookings")
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);

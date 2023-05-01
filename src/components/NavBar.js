@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 import Logo from "../assets/Images/navbar.png";
-import Profile from "../assets/Images/download (3).png";
+import Profile from "../assets/Images/Profile.png";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -23,18 +23,18 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="sticky top-0 z-50">
-      <nav class="flex items-center justify-between shadow-md backdrop-blur-lg flex-wrap bg-navy blue-500 p-6 opacity-90">
-        <div className="ml-4 md:ml-11 mt-2 md:mt-0">
-          <img src={Logo} alt="logo" className="w-16 md:w-20 h-16 md:h-20" />
-        </div>
-        <div className="w-full block md:flex md:items-center md:w-auto">
-          <div className="text-lg text-center md:flex-grow">
-            <div className="md:hidden flex items-center justify-end">
-              <button
-                className="text-white hover:text-orange-600 focus:text-orange-600 focus:outline-none mr-4"
-                onClick={() => setIsOpen(!isOpen)}
-              >
+<div className="sticky top-0 z-50">
+  <nav class="flex items-center justify-between shadow-md backdrop-blur-lg flex-wrap bg-navy blue-500  opacity-90">
+    <div className="flex items-center ml-12 mt-8">
+      <img src={Logo} alt="logo" className="w-16 md:w-16 h-16 md:h-16" />
+    </div>
+    <div className="w-full flex-grow md:flex md:items-center md:w-auto">
+      <div className="text-lg text-center md:flex-grow">
+        <div className="md:hidden flex items-center justify-end">
+          <button
+            className="text-white hover:text-orange-600 focus:text-orange-600 focus:outline-none mr-4"
+            onClick={() => setIsOpen(!isOpen)}
+          >
                 {isOpen ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

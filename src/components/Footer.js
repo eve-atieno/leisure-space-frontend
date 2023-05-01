@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
 
-    <div className="text-left">
   
   <footer aria-label="Site Footer" className="bg-slate-900 ">
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -53,9 +52,9 @@ function Footer() {
           </div>
   
           <div className="col-span-2 sm:col-span-1">
-            <p className="font-medium text-white">Services</p>
+            <p className="font-medium text-white ">Services</p>
   
-            <nav aria-label="Footer Navigation - Services" className="mt-6">
+            <nav aria-label="Footer Navigation - Services" className="mt">
               <ul className="space-y-4 text-sm">
                 <li>
                   <a href="#" className="text-white transition hover:opacity-75">
@@ -353,7 +352,7 @@ function Footer() {
 
     </footer>
 
-</div>
+
   )
 }
 

@@ -43,7 +43,7 @@ function AddSpace() {
       admin_id: admin.id,
     };
     console.log("space", space);
-    fetch("http://127.0.0.1:3000/spaces", {
+    fetch("https://leisure.onrender.com/spaces", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(space),
@@ -62,7 +62,7 @@ function AddSpace() {
   const [spaces, setSpaces] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/spaces")
+    fetch("https://leisure.onrender.com/spaces")
       .then((res) => res.json())
       .then((data) => {
         setSpaces(data);
@@ -87,7 +87,7 @@ function AddSpace() {
       space_id: lastSpace.id,
     };
     console.log("image", image);
-    fetch("http://127.0.0.1:3000/media", {
+    fetch("https://leisure.onrender.com/media", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(imag),

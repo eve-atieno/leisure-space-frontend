@@ -50,7 +50,7 @@ function App() {
   const [sortOption, setSortOption] = useState("");
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/spaces")
+    fetch("https://leisure.onrender.com/spaces")
       .then((res) => res.json())
       .then((data) => {
         setSpaces(data);
@@ -89,7 +89,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/reviews")
+    fetch("https://leisure.onrender.com/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(Array.isArray(data) ? data : []);

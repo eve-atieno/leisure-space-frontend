@@ -13,7 +13,7 @@ export default function AuthProvider({ children }) {
 
   // login
  const login = (email, password, userType) => {
-  fetch("http://127.0.0.1:3000/login", {
+  fetch("https://leisure.onrender.com/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export default function AuthProvider({ children }) {
 
   // Register
   const register = (name, email, password,confirmPassword) => {
-    fetch("http://127.0.0.1:3000/users", {
+    fetch("https://leisure.onrender.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
