@@ -75,13 +75,13 @@ function SignUp() {
                 htmlFor="password"
                 className="text-gray-500 font-bold mb-2"
               >
-                Password
+                Confirm Password
               </label>
               <input
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 type="password"
-                id="password"
+                id="confirmPassword"
                 placeholder="Confirm Password"
                 className="border-2 border-gray-400 rounded-lg w-full h-12 px-3 text-lg focus:outline-none focus:border-blue-500"
                 required

@@ -88,7 +88,6 @@ export default function AuthProvider({ children }) {
             showConfirmButton: false,
             timer: 1500,
           });
-  
           // Delay the navigation by 1.5 seconds
           setTimeout(() => {
             navigate("/login");
