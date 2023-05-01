@@ -58,7 +58,7 @@ export default function AuthProvider({ children }) {
 };
 
   // Register
-  const register = (name, email, password,confirmPassword) => {
+  const register = (name, email, password, confirmPassword) => {
     fetch("https://leisure.onrender.com/users", {
       method: "POST",
       headers: {
@@ -68,14 +68,12 @@ export default function AuthProvider({ children }) {
         name,
         email,
         password,
-        confirmPassword
+        confirmPassword,
       }),
     })
       .then((res) => res.json())
       .then((response) => {
-        setOnChange(!change);
         if (response.error) {
-          // console.log(response.error)
           Swal.fire({
             icon: "error",
             title: "Oops...",
@@ -83,7 +81,6 @@ export default function AuthProvider({ children }) {
             footer: '<a href="">Why do I have this issue?</a>',
           });
         } else {
-          // setUser(response)
           Swal.fire({
             position: "center",
             icon: "success",
@@ -91,11 +88,15 @@ export default function AuthProvider({ children }) {
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/login");
+  
+          // Delay the navigation by 1.5 seconds
+          setTimeout(() => {
+            navigate("/login");
+          }, 1500);
         }
       });
   };
-
+  
   
  
   const logout = () => {
@@ -112,19 +113,19 @@ export default function AuthProvider({ children }) {
     admin,
   };
 // fetch user
-  useEffect(() => {
-    fetch("", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        console.log(response)
+  // useEffect(() => {
+  //   fetch("", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((response) => {
+  //       console.log(response)
       
-      });
-  }, []);
+  //     });
+  // }, []);
 
   return (
     <>
