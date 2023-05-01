@@ -1,15 +1,15 @@
 import React from 'react'
 import ReviewItem from "./ReviewItem"
 
-const ReviewList = ({reviews}) => {
+const ReviewList = ({reviews,setReviews}) => {
   
   return (
     <div>
-        <h2>Reviews</h2>
+      
         {reviews.map((review)=>(
-            <ReviewItem key={review.id} review={review}/>
+            <ReviewItem key={review.id} review={review} setReviews={setReviews}/>
         ))}
-        <button>Add Review</button>
+      
     </div>
   )
 }

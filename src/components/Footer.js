@@ -1,87 +1,88 @@
 import React from "react";
 import Logo from '../assets/Images/navbar.png'
+import { Link } from "react-router-dom";
 
 
 
 function Footer() {
   return (
-   
+
+    <div className="text-left">
   
-  <footer aria-label="Site Footer" class="bg-slate-900">
-    <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-      <div class="lg:flex lg:items-start lg:gap-8">
-       
-  
+  <footer aria-label="Site Footer" className="bg-slate-900 ">
+    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="lg:flex lg:items-start lg:gap-8">
+
         <div
-          class="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16"
+          className="mt-8 grid grid-cols-2 gap-8 lg:mt-0 lg:grid-cols-5 lg:gap-y-16"
         >
-          <div class="col-span-2">
+          <div className="col-span-2">
             <div>
-              <h2 class="text-2xl font-bold text-white">
-                Get the latest news!
+              <h2 className="text-2xl font-bold text-white">
+                Leisure-space
               </h2>
   
-              <p class="mt-4 text-white">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
-                cupiditate quae nam molestias.
+              <p className="mt-4 text-white">
+                Is a website that allows people to book and fulfil emotional needs 
               </p>
             </div>
           </div>
   
-          <div class="col-span-2 lg:col-span-3 lg:flex lg:items-end">
-            <form class="w-full">
-              <label for="UserEmail" class="sr-only"> Email </label>
+          <div className="col-span-2 lg:col-span-3 text-center lg:flex lg:items-end">
+            <form className="w-full">
+              <label for="UserEmail" className="sr-only"> Email </label>
   
               <div
-                class="border border-gray-100 p-2 focus-within:ring sm:flex sm:items-center sm:gap-4"
+                className="border border-gray-100 p-2 focus-within:ring sm:flex sm:items-center sm:gap-4"
               >
                 <input
                   type="email"
                   id="UserEmail"
                   placeholder="email"
-                  class="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm"
+                  className="w-full border-none focus:border-transparent focus:ring-transparent sm:text-sm"
                 />
-  
+               <Link to="signup">
                 <button
-                  class="mt-1 w-full bg-orange-500  px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:flex-shrink-0"
+                  className="mt-1 w-full bg-orange-500  px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-none hover:bg-teal-600 sm:mt-0 sm:w-auto sm:flex-shrink-0"
                 >
                   Sign Up
                 </button>
+                </Link>
               </div>
             </form>
           </div>
   
-          <div class="col-span-2 sm:col-span-1">
-            <p class="font-medium text-white">Services</p>
+          <div className="col-span-2 sm:col-span-1">
+            <p className="font-medium text-white">Services</p>
   
-            <nav aria-label="Footer Navigation - Services" class="mt-6">
-              <ul class="space-y-4 text-sm">
+            <nav aria-label="Footer Navigation - Services" className="mt-6">
+              <ul className="space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     1on1 Coaching
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Company Review
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Accounts Review
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-105">
                     HR Consulting
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     SEO Optimisation
                   </a>
                 </li>
@@ -89,25 +90,27 @@ function Footer() {
             </nav>
           </div>
   
-          <div class="col-span-2 sm:col-span-1">
-            <p class="font-medium text-white">Company</p>
+          <div className="col-span-2 sm:col-span-1">
+            <p className="font-medium text-white">Company</p>
   
-            <nav aria-label="Footer Navigation - Company" class="mt-6">
-              <ul class="space-y-4 text-sm">
+            <nav aria-label="Footer Navigation - Company" className="mt-6">
+              <ul className="space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
+                  <Link to="/about" className="text-white transition hover:opacity-75">
                     About
+                  </Link>
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Meet the Team
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Accounts Review
                   </a>
                 </li>
@@ -115,25 +118,25 @@ function Footer() {
             </nav>
           </div>
   
-          <div class="col-span-2 sm:col-span-1">
-            <p class="font-medium text-white">Helpful Links</p>
+          <div className="col-span-2 sm:col-span-1">
+            <p className="font-medium text-white">Helpful Links</p>
   
-            <nav aria-label="Footer Navigation - Company" class="mt-6">
-              <ul class="space-y-4 text-sm">
+            <nav aria-label="Footer Navigation - Company" className="mt-6">
+              <ul className="space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Contact
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     FAQs
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Live Chat
                   </a>
                 </li>
@@ -141,31 +144,31 @@ function Footer() {
             </nav>
           </div>
   
-          <div class="col-span-2 sm:col-span-1">
-            <p class="font-medium text-white">Legal</p>
+          <div className="col-span-2 sm:col-span-1">
+            <p className="font-medium text-white">Legal</p>
   
-            <nav aria-label="Footer Navigation - Legal" class="mt-6">
-              <ul class="space-y-4 text-sm">
+            <nav aria-label="Footer Navigation - Legal" className="mt-6">
+              <ul className="space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Accessibility
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Returns Policy
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Refund Policy
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Hiring Statistics
                   </a>
                 </li>
@@ -173,19 +176,19 @@ function Footer() {
             </nav>
           </div>
   
-          <div class="col-span-2 sm:col-span-1">
-            <p class="font-medium text-white">Downloads</p>
+          <div className="col-span-2 sm:col-span-1">
+            <p className="font-medium text-white">Downloads</p>
   
-            <nav aria-label="Footer Navigation - Downloads" class="mt-6">
-              <ul class="space-y-4 text-sm">
+            <nav aria-label="Footer Navigation - Downloads" className="mt-6">
+              <ul className="space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     Marketing Calendar
                   </a>
                 </li>
   
                 <li>
-                  <a href="#" class="text-white transition hover:opacity-75">
+                  <a href="#" className="text-white transition hover:opacity-75">
                     SEO Infographics
                   </a>
                 </li>
@@ -194,19 +197,19 @@ function Footer() {
           </div>
   
           <ul
-            class="col-span-2 flex justify-start gap-6 lg:col-span-5 lg:justify-end"
+            className="col-span-2 flex justify-start gap-6 lg:col-span-5 lg:justify-end"
           >
             <li>
               <a
                 href="/"
                 rel="noreferrer"
                 target="_blank"
-                class="text-white transition hover:opacity-75"
+                className="text-white transition hover:opacity-75"
               >
-                <span class="sr-only">Facebook</span>
+                <span className="sr-only">Facebook</span>
   
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -225,12 +228,12 @@ function Footer() {
                 href="/"
                 rel="noreferrer"
                 target="_blank"
-                class="text-white transition hover:opacity-75"
+                className="text-white transition hover:opacity-75"
               >
-                <span class="sr-only">Instagram</span>
+                <span className="sr-only">Instagram</span>
   
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -249,12 +252,12 @@ function Footer() {
                 href="/"
                 rel="noreferrer"
                 target="_blank"
-                class="text-white transition hover:opacity-75"
+                className="text-white transition hover:opacity-75"
               >
-                <span class="sr-only">Twitter</span>
+                <span className="sr-only">Twitter</span>
   
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -271,12 +274,12 @@ function Footer() {
                 href="/"
                 rel="noreferrer"
                 target="_blank"
-                class="text-white transition hover:opacity-75"
+                className="text-white transition hover:opacity-75"
               >
-                <span class="sr-only">GitHub</span>
+                <span className="sr-only">GitHub</span>
   
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -295,12 +298,12 @@ function Footer() {
                 href="/"
                 rel="noreferrer"
                 target="_blank"
-                class="text-white transition hover:opacity-75"
+                className="text-white transition hover:opacity-75"
               >
-                <span class="sr-only">Dribbble</span>
+                <span className="sr-only">Dribbble</span>
   
                 <svg
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
@@ -317,28 +320,28 @@ function Footer() {
         </div>
       </div>
   
-      <div class="mt-8 border-t border-gray-100 pt-8">
-        <div class="sm:flex sm:justify-between">
-          <p class="text-xs text-white">
+      <div className="mt-8 border-t border-gray-100 pt-8">
+        <div className="sm:flex sm:justify-between">
+          <p className="text-xs text-white">
             &copy; 2023.Leisure space. All rights reserved.
           </p>
   
-          <nav aria-label="Footer Navigation - Support" class="mt-8 sm:mt-0">
-            <ul class="flex flex-wrap justify-start gap-4 text-xs lg:justify-end">
+          <nav aria-label="Footer Navigation - Support" className="mt-8 sm:mt-0">
+            <ul className="flex flex-wrap justify-start gap-4 text-xs lg:justify-end">
               <li>
-                <a href="#" class="text-white transition hover:opacity-75">
+                <a href="#" className="text-white transition hover:opacity-75">
                   Terms & Conditions
                 </a>
               </li>
   
               <li>
-                <a href="#" class="text-white transition hover:opacity-75">
+                <a href="#" className="text-white transition hover:opacity-75">
                   Privacy Policy
                 </a>
               </li>
   
               <li>
-                <a href="#" class="text-white transition hover:opacity-75">
+                <a href="#" className="text-white transition hover:opacity-75">
                   Cookies
                 </a>
               </li>
@@ -347,10 +350,11 @@ function Footer() {
         </div>
       </div>
     </div>
-  </footer>
-  
+
+    </footer>
+
+</div>
   )
 }
-
 
 export default Footer

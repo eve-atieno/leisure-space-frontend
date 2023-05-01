@@ -2,11 +2,10 @@
   border-top: 1px solid var(--grey);
   padding: 1rem 3rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   overflow-x: auto;
 }
-
 .links-box {
   display: flex;
   flex-direction: column;
