@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiCurrentLocation } from "react-icons/bi";
 import { IoMdWifi } from "react-icons/io";
 import { Link } from "react-router-dom";
@@ -26,7 +26,7 @@ function BookingPage({ spaces }) {
     media: [],
   };
   //image
-  //price
+
 
   // post a booking
   const submitBooking = (e) => {
@@ -67,6 +67,58 @@ function BookingPage({ spaces }) {
 
   const admin = JSON.parse(sessionStorage.getItem("admin"));
   //if is admin do not show the button
+const [isbooked, setIsbooked] = useState(false);
+const [booked, setBooked] = useState([]);
+  //get booked space
+  useEffect(() => {
+    fetch("http://127.0.0.1:3000/bookings ")
+    .then((res) => res.json())
+    .then((data) => {
+      setBooked(data);
+      setIsLoading(false);
+    });
+  }, []);
+//check if the space is booked or not
+  useEffect(() => {
+    if (booked.length > 0) {
+      const isBooked = booked.find((book) => book.space_id === space.id);
+      if (isBooked) {
+        setIsbooked(true);
+      }
+    }
+  }, [booked, space.id]);
+
+  //get the startDate and endDate of the booked space
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
+  useEffect(() => {
+    if (booked.length > 0) {
+      const isBooked = booked.find((book) => book.space_id === space.id);
+      if (isBooked) {
+        setStartDate(isBooked.startate);
+        setEndDate(isBooked.end_date);
+      }
+      else{
+        setStartDate("none");
+        setEndDate("none");
+      }
+    }
+  }, [booked, space.id]);
+
+  console.log(startDate);
+  console.log(endDate);
+  console.log(isbooked);
+  
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="bg-white">
@@ -135,6 +187,18 @@ function BookingPage({ spaces }) {
           </div>
         </div>
       </div>
+      <p className="items-end justify-end flex">
+        {startDate === "none" ? (
+        <span className="text-lg font-bold tracking-tight text-gray-900 sm:text-lg">
+          NOT BOOKED
+        </span>
+        ) : (
+          <span className="text-lg font-bold tracking-tight text-gray-900 sm:text-lg">
+           BOOKED FROM {startDate} TO {endDate}
+        </span>
+        )}
+
+        </p>
     </div>
       <div className="mx-auto max-w-2xl px-4 pb-16 pt-5 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,0fr] lg:gap-x-8 lg:px-8 lg:pb-2 lg:pt-5">
         <div className="lg:col-span-2  lg:pr-8">
@@ -224,6 +288,7 @@ function BookingPage({ spaces }) {
               <p className="text-base text-gray-900 ml-12">
                 4 Geusts 1 bedroom 1 bed
               </p>
+
             </div>
           </div>
           <div className="mt-8 ">

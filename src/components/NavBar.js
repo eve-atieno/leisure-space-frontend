@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthContext";
 import Logo from "../assets/Images/navbar.png";
-import Profile from "../assets/Images/Profile.png";
+import Profile from "../assets/Images/download (3).png";
 
 const NavBar = () => {
   const navigate = useNavigate();
