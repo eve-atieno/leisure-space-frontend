@@ -36,6 +36,7 @@
     "save": "^2.9.0",
     "slick-carousel": "^1.8.1",
     "source-map-loader": "^4.0.1",
+    "sweetalert2": "^11.7.3",
     "swiper": "^9.2.3",
     "web-vitals": "^2.1.4"
   },
